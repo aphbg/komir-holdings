@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structure — Komir Holdings</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --charcoal: #111111;
+    --charcoal-deep: #0A0A0A;
+    --charcoal-surface: #1A1A1A;
+    --charcoal-card: #1E1E1E;
+    --charcoal-hover: #252525;
+    --purple: #843287;
+    --purple-glow: rgba(132, 50, 135, 0.25);
+    --purple-line: rgba(132, 50, 135, 0.4);
+    --purple-soft: rgba(132, 50, 135, 0.10);
+    --white: #FFFFFF;
+    --white-90: rgba(255, 255, 255, 0.9);
+    --white-70: rgba(255, 255, 255, 0.7);
+    --white-50: rgba(255, 255, 255, 0.5);
+    --white-30: rgba(255, 255, 255, 0.3);
+    --white-20: rgba(255, 255, 255, 0.2);
+    --white-08: rgba(255, 255, 255, 0.08);
+    --white-04: rgba(255, 255, 255, 0.04);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    color: var(--white);
+    background: var(--charcoal-deep);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ═══ NAVIGATION ═══ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  .wordmark {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .wordmark span { color: var(--purple); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--white-50);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--purple); }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero {
+    padding: 180px 0 80px;
+    background: var(--charcoal-deep);
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .page-eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--purple);
+  }
+
+  .page-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--white-50);
+    max-width: 560px;
+  }
+
+  /* ═══ SECTIONS ═══ */
+  section {
+    padding: 100px 0;
+  }
+
+  .section-dark { background: var(--charcoal); }
+  .section-deep { background: var(--charcoal-deep); }
+
+  .section-eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.25;
+    color: var(--white);
+    margin-bottom: 20px;
+    max-width: 640px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--white-70);
+    max-width: 620px;
+  }
+
+  .section-body + .section-body { margin-top: 20px; }
+
+  /* ═══ ORG MAP ═══ */
+  .org-map {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .org-node {
+    text-align: center;
+    padding: 28px 40px;
+    min-width: 260px;
+    position: relative;
+  }
+
+  .org-node-primary {
+    background: var(--purple);
+    border: none;
+  }
+
+  .org-node-secondary {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+  }
+
+  .org-node-role {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .org-node-desc {
+    font-size: 13px;
+    color: var(--white-70);
+    font-weight: 300;
+  }
+
+  .org-node-primary .org-node-desc { color: rgba(255,255,255,0.85); }
+
+  .org-connector {
+    width: 2px;
+    height: 32px;
+    background: var(--white-20);
+  }
+
+  .org-branch {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .org-branch .org-node {
+    min-width: 200px;
+    padding: 20px 28px;
+  }
+
+  .org-staff-row {
+    display: flex;
+    gap: 2px;
+    position: relative;
+    margin-top: 0;
+  }
+
+  .org-staff-label {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--purple);
+    white-space: nowrap;
+  }
+
+  .org-staff-node {
+    background: var(--charcoal-surface);
+    border: 1px solid var(--white-08);
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 160px;
+  }
+
+  .org-staff-node .org-node-role {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .org-staff-node .org-node-desc {
+    font-size: 11px;
+  }
+
+  .org-connector-split {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    height: 32px;
+    width: 100%;
+  }
+
+  .org-connector-split::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 16px;
+    background: var(--white-20);
+  }
+
+  .org-connector-split::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 200px);
+    max-width: 500px;
+    height: 2px;
+    background: var(--white-20);
+  }
+
+  /* ═══ ROLE DETAIL CARDS ═══ */
+  .role-card {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+    padding: 48px;
+    margin-top: 48px;
+    transition: border-color 0.3s;
+  }
+
+  .role-card:hover { border-color: var(--purple-line); }
+
+  .role-card + .role-card { margin-top: 24px; }
+
+  .role-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .role-tag {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--purple);
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .role-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--white-70);
+    max-width: 640px;
+  }
+
+  .role-body + .role-body { margin-top: 16px; }
+
+  .role-path {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--white-08);
+  }
+
+  .role-path-label {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--white-50);
+    margin-bottom: 8px;
+  }
+
+  .role-path-value {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .role-path-arrow {
+    color: var(--purple);
+    font-size: 14px;
+  }
+
+  /* ═══ STAFF GRID ═══ */
+  .staff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .staff-card {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+    padding: 36px;
+    transition: border-color 0.3s;
+  }
+
+  .staff-card:hover { border-color: var(--purple-line); }
+
+  .staff-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .staff-desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--white-70);
+  }
+
+  /* ═══ DOCTRINE BLOCK ═══ */
+  .doctrine-block {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+    border-left: 4px solid var(--purple);
+    padding: 48px;
+    margin-top: 48px;
+  }
+
+  .doctrine-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .doctrine-principles {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .doctrine-principle {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .doctrine-marker {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--purple);
+    margin-top: 8px;
+  }
+
+  .doctrine-text {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--white-70);
+  }
+
+  /* ═══ GOVERNANCE LAYERS ═══ */
+  .gov-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 48px;
+    counter-reset: gov-layer;
+  }
+
+  .gov-layer {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+    padding: 36px 40px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+    counter-increment: gov-layer;
+  }
+
+  .gov-layer:hover { border-color: var(--purple-line); }
+
+  .gov-number {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--purple);
+    min-width: 48px;
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .gov-number::before {
+    content: counter(gov-layer);
+  }
+
+  .gov-content { flex: 1; }
+
+  .gov-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .gov-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--white-70);
+  }
+
+  /* ═══ BOARD GRID ═══ */
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .board-card {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+    padding: 32px;
+    transition: border-color 0.3s;
+  }
+
+  .board-card:hover { border-color: var(--purple-line); }
+
+  .board-card.span-2 {
+    grid-column: span 2;
+  }
+
+  .board-name {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .board-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--white-70);
+  }
+
+  .board-focus {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--purple);
+    margin-top: 16px;
+  }
+
+  /* ═══ DIVIDER ═══ */
+  .section-divider {
+    height: 1px;
+    background: var(--white-08);
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--white-08);
+    background: var(--charcoal-deep);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-wordmark {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--white-50);
+  }
+
+  .footer-wordmark span { color: var(--purple); }
+
+  .footer-meta {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--white-20);
+    text-align: right;
+  }
+
+  .footer-location {
+    margin-bottom: 4px;
+    color: var(--white-50);
+    font-weight: 400;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .staff-grid { grid-template-columns: 1fr 1fr; }
+    .board-grid { grid-template-columns: 1fr 1fr; }
+    .board-card.span-2 { grid-column: span 1; }
+  }
+
+  @media (max-width: 680px) {
+    .container { padding: 0 24px; }
+    .page-hero { padding: 140px 0 64px; }
+    section { padding: 72px 0; }
+    .nav-links { display: none; }
+
+    .staff-grid { grid-template-columns: 1fr; }
+    .board-grid { grid-template-columns: 1fr; }
+
+    .role-card, .doctrine-block { padding: 28px; }
+    .gov-layer { padding: 24px; flex-direction: column; gap: 16px; }
+    .staff-card { padding: 24px; }
+    .board-card { padding: 24px; }
+
+    .org-branch { flex-direction: column; align-items: center; }
+    .org-staff-row { flex-direction: column; align-items: center; gap: 8px; }
+
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .footer-meta { text-align: left; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="wordmark">KOMIR HOLDINGS<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="/ventures">Ventures</a></li>
+      <li><a href="/structure" class="active">Structure</a></li>
+      <li><a href="/infrastructure">Infrastructure</a></li>
+      <li><a href="/doctrine">Doctrine</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-eyebrow">KOMIR HOLDINGS</div>
+    <h1 class="page-title">Structure</h1>
+    <p class="page-subtitle">How Komir Holdings is governed, staffed, and protected. The architecture that ensures the company operates as designed — today, and for generations.</p>
+  </div>
+</section>
+
+<!-- ═══ ORGANISATIONAL MAP ═══ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-eyebrow">ORGANISATIONAL ARCHITECTURE</div>
+    <h2 class="section-title">The chain of command.</h2>
+    <p class="section-body">Every role exists for a reason. The structure is designed so that the founder's vision translates cleanly into operational reality — through a Group CEO who commands the portfolio, a personal staff layer that protects the founder's time and capacity, and venture CEOs who run each business independently.</p>
+
+    <div class="org-map">
+      <div class="org-node org-node-primary">
+        <div class="org-node-role">Founder</div>
+        <div class="org-node-desc">Vision, strategy, IP origination</div>
+      </div>
+
+      <div class="org-connector"></div>
+
+      <div class="org-staff-row">
+        <div class="org-staff-label">PERSONAL STAFF LAYER</div>
+        <div class="org-staff-node">
+          <div class="org-node-role">Chief of Staff</div>
+          <div class="org-node-desc">Founder brain</div>
+        </div>
+        <div class="org-staff-node">
+          <div class="org-node-role">Executive Assistant</div>
+          <div class="org-node-desc">Business brain</div>
+        </div>
+        <div class="org-staff-node">
+          <div class="org-node-role">PA / ADC</div>
+          <div class="org-node-desc">Movement</div>
+        </div>
+        <div class="org-staff-node">
+          <div class="org-node-role">House Manager</div>
+          <div class="org-node-desc">Domestic SOPs</div>
+        </div>
+      </div>
+
+      <div class="org-connector"></div>
+
+      <div class="org-node org-node-secondary">
+        <div class="org-node-role">Group CEO</div>
+        <div class="org-node-desc">Portfolio command</div>
+      </div>
+
+      <div class="org-connector"></div>
+
+      <div class="org-node org-node-secondary">
+        <div class="org-node-role">Director of Capital &amp; Treasury</div>
+        <div class="org-node-desc">Capital allocation</div>
+      </div>
+
+      <div class="org-connector-split"></div>
+
+      <div class="org-branch">
+        <div class="org-node org-node-secondary">
+          <div class="org-node-role">Venture CEO</div>
+          <div class="org-node-desc">Jovilex</div>
+        </div>
+        <div class="org-node org-node-secondary">
+          <div class="org-node-role">Venture CEO</div>
+          <div class="org-node-desc">Praxis</div>
+        </div>
+        <div class="org-node org-node-secondary">
+          <div class="org-node-role">Venture CEO</div>
+          <div class="org-node-desc">Command Centre</div>
+        </div>
+        <div class="org-node org-node-secondary">
+          <div class="org-node-role">Venture CEO</div>
+          <div class="org-node-desc">Kinetic</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ GROUP CEO ═══ -->
+<section class="section-deep">
+  <div class="container">
+    <div class="section-eyebrow">KEY ROLES</div>
+
+    <div class="role-card">
+      <div class="role-tag">PORTFOLIO COMMAND</div>
+      <h3 class="role-title">Group CEO</h3>
+      <p class="role-body">The Group CEO sits between the founder and all venture CEOs. This role commands the entire portfolio — translating strategic direction into operational targets, managing cross-venture dependencies, and ensuring every business executes to the standard the holding company demands.</p>
+      <p class="role-body">This role is designed to be agent-first. The systems, decision frameworks, and operational playbooks are built to be run by AI before a human inherits the position. When the first human Group CEO arrives, they inherit a machine that already works — their job is to make it better, not to build it from scratch.</p>
+      <div class="role-path">
+        <div class="role-path-label">CAREER PATH</div>
+        <div class="role-path-value">
+          <span>Executive Assistant</span>
+          <span class="role-path-arrow">→</span>
+          <span>Chief of Staff</span>
+          <span class="role-path-arrow">→</span>
+          <span>Group CEO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-tag">CAPITAL ARCHITECTURE</div>
+      <h3 class="role-title">Director of Capital &amp; Treasury</h3>
+      <p class="role-body">Routes Capital Engine output to ventures across the portfolio. Models cross-venture capitalisation — which businesses need capital, when, and in what form. Manages the treasury function that keeps sovereign capital flowing through the ecosystem without external dependency.</p>
+      <p class="role-body">This role is the connection between the capital system and every operational entity. It ensures that capital allocation is strategic, not reactive — that every dollar deployed is building toward the portfolio's compounding architecture, not patching short-term gaps.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ PERSONAL STAFF LAYER ═══ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-eyebrow">PERSONAL STAFF LAYER</div>
+    <h2 class="section-title">The four roles that protect the founder's capacity.</h2>
+    <p class="section-body">The founder's time and cognitive bandwidth are the most valuable resources in the portfolio. These four roles exist to ensure that bandwidth is spent on what only the founder can do — vision, architecture, relationships, and strategic decisions. Everything else is handled.</p>
+
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-name">Chief of Staff</div>
+        <p class="staff-desc">The founder's brain externalised. Manages the decision queue, synthesises information across all ventures, and ensures the founder sees only what requires the founder's judgment. Reports directly to the founder. Every other staff role reports here.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-name">Executive Assistant</div>
+        <p class="staff-desc">The business brain. Manages the founder's schedule, communications, and operational rhythm. Handles the interface between the founder and the organisation. Reports to the Chief of Staff. First hire in the personal staff sequence.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-name">Personal Assistant / Aide-de-Camp</div>
+        <p class="staff-desc">Movement, travel, physical security, and logistics. Ensures the founder can move between locations, meetings, and events without friction. Manages the physical layer of the founder's daily operations.</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-name">House Manager</div>
+        <p class="staff-desc">Domestic standard operating procedures. Manages the founder's personal environment — home, meals, maintenance, household staff, and personal logistics. The foundation that ensures the founder's non-work life runs without attention.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ FIRST-HIRE DOCTRINE ═══ -->
+<section class="section-deep">
+  <div class="container">
+    <div class="section-eyebrow">HIRING PHILOSOPHY</div>
+    <h2 class="section-title">The First-Hire Doctrine.</h2>
+    <p class="section-body">This is how every team inside Komir Holdings is built. Not with org charts designed in advance, but with a principle that governs how people enter, grow, and lead.</p>
+
+    <div class="doctrine-block">
+      <h3 class="doctrine-title">One person enters doing everything. They ascend as the next arrives.</h3>
+      <div class="doctrine-principles">
+        <div class="doctrine-principle">
+          <div class="doctrine-marker"></div>
+          <p class="doctrine-text">The first hire does everything — operations, admin, coordination, execution. They are not hired for a title. They are hired for their willingness to build from the ground.</p>
+        </div>
+        <div class="doctrine-principle">
+          <div class="doctrine-marker"></div>
+          <p class="doctrine-text">As the next person arrives, the first hire ascends. They move up because they earned the ground beneath them. Nobody is ever brought in above someone who grew from the floor.</p>
+        </div>
+        <div class="doctrine-principle">
+          <div class="doctrine-marker"></div>
+          <p class="doctrine-text">Character over credentials. A person's integrity, work ethic, and willingness to do what needs to be done outweighs any qualification, degree, or previous title.</p>
+        </div>
+        <div class="doctrine-principle">
+          <div class="doctrine-marker"></div>
+          <p class="doctrine-text">Wholeness over intelligence. A brilliant person who cannot be trusted, who cannot collaborate, who cannot grow — is less valuable than a capable person who can do all three.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ GOVERNANCE ARCHITECTURE ═══ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-eyebrow">GOVERNANCE ARCHITECTURE</div>
+    <h2 class="section-title">Five layers of structural protection.</h2>
+    <p class="section-body">Komir Holdings is built on intellectual property created by its founder. The governance architecture ensures that the relationship between the founder, the IP, and the company is protected permanently — through corporate structure, not through hope.</p>
+
+    <div class="gov-stack">
+      <div class="gov-layer">
+        <div class="gov-number"></div>
+        <div class="gov-content">
+          <div class="gov-name">IP Origination</div>
+          <p class="gov-desc">Every system, methodology, and architecture in the portfolio was created by the founder as personal intellectual property before being licensed to the holding company. The Capital Engine, every venture architecture, every operational system — all originated with the founder and are formally documented as such. The company operates on licensed IP. The IP belongs to the creator.</p>
+        </div>
+      </div>
+      <div class="gov-layer">
+        <div class="gov-number"></div>
+        <div class="gov-content">
+          <div class="gov-name">Dual-Class Share Structure</div>
+          <p class="gov-desc">Two classes of shares. Class A carries standard voting rights. Class B carries superior voting rights and is held exclusively by the founder and designated trust structures. Class B shares are non-transferable and non-dilutable. Economic ownership can shift over time — voting control does not.</p>
+        </div>
+      </div>
+      <div class="gov-layer">
+        <div class="gov-number"></div>
+        <div class="gov-content">
+          <div class="gov-name">Founder Reserved Matters</div>
+          <p class="gov-desc">A defined list of decisions that require the founder's written consent regardless of board vote or shareholder majority. This includes any sale, merger, or acquisition; new share issuance; changes to constitutional documents; Group CEO appointment; entry into new sectors; and any modification to the Capital Engine's deployment.</p>
+        </div>
+      </div>
+      <div class="gov-layer">
+        <div class="gov-number"></div>
+        <div class="gov-content">
+          <div class="gov-name">Irrevocable Trust</div>
+          <p class="gov-desc">The family holding structure is held within an irrevocable trust. The trust holds Class B shares and the IP portfolio. It protects the structure from all parties — including the founder. The trustee's fiduciary duty is to the beneficiaries across generations, not to any individual, board, or external partner.</p>
+        </div>
+      </div>
+      <div class="gov-layer">
+        <div class="gov-number"></div>
+        <div class="gov-content">
+          <div class="gov-name">Golden Share</div>
+          <p class="gov-desc">A single share with the power to block any resolution that would alter the company's fundamental character, ownership structure, or founder protections. Even if every other shareholder votes in favour and the board votes unanimously — the golden share holds the final authority.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ BOARD STRATEGY ═══ -->
+<section class="section-deep">
+  <div class="container">
+    <div class="section-eyebrow">BOARD STRATEGY</div>
+    <h2 class="section-title">Five boards. Each composed for what the venture needs.</h2>
+    <p class="section-body">Board members are selected for what they bring to the specific venture — capital access, regulatory protection, industry credibility, or network multiplication. No advisory roles. Every seat carries responsibility.</p>
+
+    <div class="board-grid">
+      <div class="board-card span-2">
+        <div class="board-name">Komir Holdings — Parent Board</div>
+        <p class="board-desc">The governing board for the entire portfolio. Oversees cross-venture strategy, capital allocation, governance standards, and long-term positioning. Composed of individuals with holding company experience, capital markets expertise, and multi-sector operational knowledge.</p>
+        <div class="board-focus">CAPITAL · GOVERNANCE · CROSS-VENTURE STRATEGY</div>
+      </div>
+      <div class="board-card">
+        <div class="board-name">Praxis Board</div>
+        <p class="board-desc">Education sector expertise. Policy relationships with state and federal education bodies. Experience scaling school networks across multiple locations. Understanding of AI-native education models.</p>
+        <div class="board-focus">EDUCATION · POLICY · SCALING</div>
+      </div>
+      <div class="board-card">
+        <div class="board-name">GovTech Advisory Board</div>
+        <p class="board-desc">Government technology, defence procurement, sovereign partnerships. Individuals with direct experience in government contracting at scale. Regulatory navigation across multiple jurisdictions.</p>
+        <div class="board-focus">GOVERNMENT · DEFENCE · PROCUREMENT</div>
+      </div>
+      <div class="board-card">
+        <div class="board-name">Kinetic Board</div>
+        <p class="board-desc">Digital education infrastructure, EdTech scaling, and venture capital. Board members who understand how to scale a technology platform with external capital while maintaining strategic alignment with the parent portfolio.</p>
+        <div class="board-focus">EDTECH · VENTURE CAPITAL · GROWTH</div>
+      </div>
+      <div class="board-card">
+        <div class="board-name">Jolag Farm City Board</div>
+        <p class="board-desc">Large-scale development, agricultural infrastructure, and institutional finance. Individuals with experience in billion-dollar development projects, land acquisition, and sovereign wealth fund relationships.</p>
+        <div class="board-focus">DEVELOPMENT · AGRICULTURE · INSTITUTIONAL CAPITAL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-wordmark">KOMIR HOLDINGS<span>.</span></div>
+    <div class="footer-meta">
+      <div class="footer-location">Abuja, Nigeria · Global Headquarters</div>
+      <div>&copy; 2026 Komir Holdings. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

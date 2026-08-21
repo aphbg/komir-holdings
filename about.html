@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Komir Holdings</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --charcoal: #111111;
+    --charcoal-deep: #0A0A0A;
+    --charcoal-surface: #1A1A1A;
+    --charcoal-card: #1E1E1E;
+    --purple: #843287;
+    --purple-glow: rgba(132, 50, 135, 0.25);
+    --purple-line: rgba(132, 50, 135, 0.4);
+    --white: #FFFFFF;
+    --white-70: rgba(255, 255, 255, 0.7);
+    --white-50: rgba(255, 255, 255, 0.5);
+    --white-20: rgba(255, 255, 255, 0.2);
+    --white-08: rgba(255, 255, 255, 0.08);
+    --grey-dark: #374151;
+    --surface-light: #F7F6F5;
+    --border-light: #E8E6E3;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    color: var(--white);
+    background: var(--charcoal-deep);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+
+  .wordmark {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700; font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .wordmark span { color: var(--purple); }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+
+  .nav-links a {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400; font-size: 13px;
+    color: var(--white-50);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--purple); }
+
+  .page-hero {
+    padding: 180px 0 80px;
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .page-eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600; font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+
+  .page-eyebrow::before { content: ''; width: 32px; height: 2px; background: var(--purple); }
+
+  .page-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .page-subtitle {
+    font-size: 18px; line-height: 1.8;
+    color: var(--white-50);
+    max-width: 600px;
+  }
+
+  section { padding: 100px 0; }
+  .section-dark { background: var(--charcoal); }
+  .section-deep { background: var(--charcoal-deep); }
+  .section-light { background: var(--surface-light); }
+
+  .section-eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600; font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.25;
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
+
+  .about-prose {
+    font-size: 17px; line-height: 1.9;
+    max-width: 680px;
+  }
+
+  .about-prose + .about-prose { margin-top: 24px; }
+
+  .dark-text .section-title { color: var(--white); }
+  .dark-text .about-prose { color: var(--white-70); }
+  .light-text .section-title { color: var(--charcoal); }
+  .light-text .about-prose { color: var(--grey-dark); }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .info-card {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+    padding: 36px;
+    transition: border-color 0.3s;
+  }
+
+  .info-card:hover { border-color: var(--purple-line); }
+
+  .info-label {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600; font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--purple);
+    margin-bottom: 12px;
+  }
+
+  .info-value {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700; font-size: 18px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .info-desc {
+    font-size: 14px; line-height: 1.7;
+    color: var(--white-70);
+  }
+
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--white-08);
+    background: var(--charcoal-deep);
+  }
+
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+
+  .footer-wordmark {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700; font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--white-50);
+  }
+
+  .footer-wordmark span { color: var(--purple); }
+
+  .footer-meta {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300; font-size: 12px;
+    color: var(--white-20);
+    text-align: right;
+  }
+
+  .footer-location { margin-bottom: 4px; color: var(--white-50); font-weight: 400; }
+
+  @media (max-width: 680px) {
+    .container { padding: 0 24px; }
+    .page-hero { padding: 140px 0 64px; }
+    section { padding: 72px 0; }
+    .nav-links { display: none; }
+    .info-grid { grid-template-columns: 1fr; gap: 16px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="wordmark">KOMIR HOLDINGS<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="/ventures">Ventures</a></li>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-eyebrow">KOMIR HOLDINGS</div>
+    <h1 class="page-title">About</h1>
+    <p class="page-subtitle">A multi-venture holding company building the infrastructure that entire industries — and nations — run on.</p>
+  </div>
+</section>
+
+<section class="section-light light-text">
+  <div class="container">
+    <div class="section-eyebrow">THE COMPANY</div>
+    <h2 class="section-title">Built from the inside. For the long term.</h2>
+    <p class="about-prose">Komir Holdings is a privately held investment and holdings company headquartered in Abuja, Nigeria. The portfolio spans technology, capital systems, education, government infrastructure, media, energy, and physical development — each venture designed to compound with the others as a single ecosystem.</p>
+    <p class="about-prose">The company is funded by a proprietary internal capital engine. External capital is a strategic option, never a dependency. Every venture is built to production standard before it meets the market, and every system generates the operational intelligence that makes the next build smarter.</p>
+    <p class="about-prose">Komir Holdings does not enter sectors to compete. It enters to build the foundational system each sector needs to function at scale — infrastructure that is designed for Nigeria first and deployable across Africa.</p>
+  </div>
+</section>
+
+<section class="section-dark dark-text">
+  <div class="container">
+    <div class="section-eyebrow">DETAILS</div>
+    <h2 class="section-title">At a glance.</h2>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">HEADQUARTERS</div>
+        <div class="info-value">Abuja, Nigeria</div>
+        <p class="info-desc">Global headquarters. Lagos operational office supports market presence in Nigeria's commercial centre.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-label">STRUCTURE</div>
+        <div class="info-value">Private Holding Company</div>
+        <p class="info-desc">Privately held. Internally funded. Sovereign capital architecture with no external dependency for core operations.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-label">PORTFOLIO</div>
+        <div class="info-value">Six Sectors</div>
+        <p class="info-desc">Infrastructure &amp; development, capital, technology, government &amp; defence, education, and media &amp; culture.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-label">OPERATING MODEL</div>
+        <div class="info-value">Sector Infrastructure</div>
+        <p class="info-desc">Every industry Komir enters gets its backbone built from the ground up. The system the entire sector runs on.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-label">CAPITAL</div>
+        <div class="info-value">Internal Engine</div>
+        <p class="info-desc">Proprietary capital system funds the portfolio. External capital enters from strength, never necessity.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-label">GEOGRAPHY</div>
+        <div class="info-value">Nigeria · Africa</div>
+        <p class="info-desc">Built for Nigeria first. Designed for continental deployment. Network access across 30+ countries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-wordmark">KOMIR HOLDINGS<span>.</span></div>
+    <div class="footer-meta">
+      <div class="footer-location">Abuja, Nigeria · Global Headquarters</div>
+      <div>&copy; 2026 Komir Holdings. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

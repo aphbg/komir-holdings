@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine — Komir Holdings</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --charcoal: #111111;
+    --charcoal-deep: #0A0A0A;
+    --charcoal-surface: #1A1A1A;
+    --charcoal-card: #1E1E1E;
+    --purple: #843287;
+    --purple-glow: rgba(132, 50, 135, 0.25);
+    --purple-line: rgba(132, 50, 135, 0.4);
+    --white: #FFFFFF;
+    --white-90: rgba(255, 255, 255, 0.9);
+    --white-70: rgba(255, 255, 255, 0.7);
+    --white-50: rgba(255, 255, 255, 0.5);
+    --white-20: rgba(255, 255, 255, 0.2);
+    --white-08: rgba(255, 255, 255, 0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    color: var(--white);
+    background: var(--charcoal-deep);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ═══ NAVIGATION ═══ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  .wordmark {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .wordmark span { color: var(--purple); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--white-50);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--purple); }
+
+  /* ═══ PAGE HERO ═══ */
+  .page-hero {
+    padding: 180px 0 80px;
+    background: var(--charcoal-deep);
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .page-eyebrow {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .page-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--purple);
+  }
+
+  .page-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--white-50);
+    max-width: 580px;
+  }
+
+  /* ═══ DOCTRINE ENTRIES ═══ */
+  .doctrine-section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--white-08);
+  }
+
+  .doctrine-section:last-of-type {
+    border-bottom: none;
+  }
+
+  .doctrine-section:nth-child(odd) {
+    background: var(--charcoal);
+  }
+
+  .doctrine-section:nth-child(even) {
+    background: var(--charcoal-deep);
+  }
+
+  .doctrine-header {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .doctrine-number {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--purple);
+    min-width: 64px;
+    opacity: 0.5;
+  }
+
+  .doctrine-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.2;
+    color: var(--white);
+    padding-top: 8px;
+  }
+
+  .doctrine-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--white-70);
+    max-width: 700px;
+    margin-left: 96px;
+  }
+
+  .doctrine-body + .doctrine-body {
+    margin-top: 20px;
+  }
+
+  /* ═══ FILTER GRID ═══ */
+  .filter-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 32px;
+    margin-left: 96px;
+    max-width: 700px;
+  }
+
+  .filter-item {
+    background: var(--charcoal-card);
+    border: 1px solid var(--white-08);
+    padding: 24px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.3s;
+  }
+
+  .filter-item:hover {
+    border-color: var(--purple-line);
+  }
+
+  .filter-number {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--purple);
+    min-width: 24px;
+    padding-top: 2px;
+  }
+
+  .filter-question {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--white-90);
+  }
+
+  .filter-subtext {
+    font-size: 13px;
+    color: var(--white-50);
+    margin-top: 4px;
+    font-weight: 300;
+  }
+
+  /* ═══ LADDER ═══ */
+  .ladder-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 32px;
+    margin-left: 96px;
+    max-width: 700px;
+  }
+
+  .ladder-rung {
+    display: flex;
+    align-items: stretch;
+    background: var(--charcoal-card);
+  }
+
+  .ladder-step {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    padding: 20px 24px;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    background: var(--charcoal-surface);
+    border-right: 3px solid var(--purple);
+  }
+
+  .ladder-desc {
+    padding: 20px 24px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--white-70);
+    display: flex;
+    align-items: center;
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--white-08);
+    background: var(--charcoal-deep);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-wordmark {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--white-50);
+  }
+
+  .footer-wordmark span { color: var(--purple); }
+
+  .footer-meta {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--white-20);
+    text-align: right;
+  }
+
+  .footer-location {
+    margin-bottom: 4px;
+    color: var(--white-50);
+    font-weight: 400;
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 680px) {
+    .container { padding: 0 24px; }
+    .page-hero { padding: 140px 0 64px; }
+    .doctrine-section { padding: 56px 0; }
+    .nav-links { display: none; }
+
+    .doctrine-header { flex-direction: column; gap: 12px; }
+    .doctrine-number { font-size: 36px; min-width: unset; }
+    .doctrine-body { margin-left: 0; }
+    .filter-grid { margin-left: 0; }
+    .ladder-stack { margin-left: 0; }
+
+    .filter-item { padding: 16px 20px; }
+
+    .ladder-rung { flex-direction: column; }
+    .ladder-step {
+      min-width: unset;
+      border-right: none;
+      border-bottom: 3px solid var(--purple);
+      padding: 14px 20px;
+    }
+    .ladder-desc { padding: 14px 20px; }
+
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .footer-meta { text-align: left; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="wordmark">KOMIR HOLDINGS<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="/ventures">Ventures</a></li>
+      <li><a href="/structure">Structure</a></li>
+      <li><a href="/infrastructure">Infrastructure</a></li>
+      <li><a href="/doctrine" class="active">Doctrine</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-eyebrow">KOMIR HOLDINGS</div>
+    <h1 class="page-title">Doctrine</h1>
+    <p class="page-subtitle">The operating laws that govern how Komir Holdings builds, hires, enters markets, deploys capital, and makes decisions. These are not guidelines. They are the rules.</p>
+  </div>
+</section>
+
+<!-- ═══ I — THE WORK IS THE PITCH ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">I</div>
+      <h2 class="doctrine-title">The Work Is the Pitch</h2>
+    </div>
+    <p class="doctrine-body">Walk in with finished work. The finished product is the pitch. The quality of the deliverable creates the conversation that follows — not a slide deck, not a proposal, not a promise of what could be built.</p>
+    <p class="doctrine-body">Never lead with price. Never wait for approval before starting. If the work is good enough, it sells itself. If it is not good enough, no presentation will save it. Build first. Deliver complete. Let the work do the talking.</p>
+  </div>
+</div>
+
+<!-- ═══ II — ONE SHOT, ONE KILL ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">II</div>
+      <h2 class="doctrine-title">One Shot, One Kill</h2>
+    </div>
+    <p class="doctrine-body">The first delivery is production-ready. No shells. No placeholders. No "we'll refine later." Everything is built complete from the start — design, content, functionality, documentation. The standard is that the recipient can use what they receive immediately, without asking for anything else.</p>
+    <p class="doctrine-body">This applies to every output — client deliverables, internal documents, venture architectures, technology builds. If it leaves Komir Holdings, it is finished.</p>
+  </div>
+</div>
+
+<!-- ═══ III — THE ENGAGEMENT FILTER ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">III</div>
+      <h2 class="doctrine-title">The Engagement Filter</h2>
+    </div>
+    <p class="doctrine-body">Every idea, client engagement, internal build, and feature request runs through five questions before it reaches the founder's desk. If it does not pass, it does not proceed. No exceptions.</p>
+
+    <div class="filter-grid">
+      <div class="filter-item">
+        <div class="filter-number">01</div>
+        <div>
+          <div class="filter-question">Does this require the founder's mind specifically?</div>
+          <div class="filter-subtext">If a competent CTO or operator could run it, it doesn't reach the founder's desk.</div>
+        </div>
+      </div>
+      <div class="filter-item">
+        <div class="filter-number">02</div>
+        <div>
+          <div class="filter-question">Does this create IP that Komir owns?</div>
+          <div class="filter-subtext">If it doesn't produce a platform, replicable system, or licensable model, it's freelancing.</div>
+        </div>
+      </div>
+      <div class="filter-item">
+        <div class="filter-number">03</div>
+        <div>
+          <div class="filter-question">What does this unlock that isn't visible yet?</div>
+          <div class="filter-subtext">Every move should open a door behind it. Second-order effects are the real value.</div>
+        </div>
+      </div>
+      <div class="filter-item">
+        <div class="filter-number">04</div>
+        <div>
+          <div class="filter-question">Is this a $10M conversation or a $10K conversation?</div>
+          <div class="filter-subtext">The founder has a floor. Every hour below it is stolen from above it.</div>
+        </div>
+      </div>
+      <div class="filter-item">
+        <div class="filter-number">05</div>
+        <div>
+          <div class="filter-question">Can this run without the founder?</div>
+          <div class="filter-subtext">If it can't be systematised and handed to a team, it's a job — not infrastructure.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ IV — FIRST-HIRE DOCTRINE ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">IV</div>
+      <h2 class="doctrine-title">The First-Hire Doctrine</h2>
+    </div>
+    <p class="doctrine-body">One person enters doing everything. They ascend as the next arrives. Nobody is ever brought in above someone who grew from the ground. This is how every team inside Komir Holdings is built — not with org charts designed in advance, but with a principle that rewards the people who built from the floor.</p>
+    <p class="doctrine-body">Character over credentials. A person's integrity, work ethic, and willingness to do what needs to be done outweighs any qualification, degree, or previous title. Wholeness over intelligence. A brilliant person who cannot be trusted, who cannot collaborate, who cannot grow — is less valuable than a capable person who can do all three.</p>
+  </div>
+</div>
+
+<!-- ═══ V — USE WHAT WE BUILD ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">V</div>
+      <h2 class="doctrine-title">Use What We Build</h2>
+    </div>
+    <p class="doctrine-body">Every venture in the portfolio serves the others before it serves the market. The school educates our people. The media company tells our stories. The event centres host our gatherings. The food brand feeds our teams. The technology company builds our platforms. The logistics arm moves our goods.</p>
+    <p class="doctrine-body">The portfolio is its own first customer and its most demanding one. If a venture cannot meet the standard internally, it is not ready for the market. This is how quality is proven — not through marketing, but through daily use by the people who built it.</p>
+  </div>
+</div>
+
+<!-- ═══ VI — SOVEREIGN CAPITAL ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">VI</div>
+      <h2 class="doctrine-title">Sovereign Capital</h2>
+    </div>
+    <p class="doctrine-body">External capital is a strategic option exercised from strength. It is never a requirement for survival. The Capital Engine exists so that every venture in the portfolio can be funded, launched, and scaled without waiting for permission, approval, or investment from anyone outside the holding company.</p>
+    <p class="doctrine-body">When external capital enters — through partnerships, equity, or institutional relationships — it enters on Komir's terms, into a structure that was already funded, already operational, and already generating returns. The negotiation starts from a position where the capital is useful but not necessary.</p>
+  </div>
+</div>
+
+<!-- ═══ VII — THE ENEMY RULE ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">VII</div>
+      <h2 class="doctrine-title">The Enemy Is the System</h2>
+    </div>
+    <p class="doctrine-body">The enemy is always the system, never a person. When something fails — a process, a partnership, a venture, a market entry — the diagnosis points at the structure that allowed the failure, not at the individual who happened to be standing there when it broke.</p>
+    <p class="doctrine-body">People are replaced when they cannot grow. Systems are rebuilt when they produce the wrong outcomes. The distinction matters because it determines whether the organisation learns from failure or just finds someone to blame for it.</p>
+  </div>
+</div>
+
+<!-- ═══ VIII — COUNTRY LADDER ═══ -->
+<div class="doctrine-section">
+  <div class="container">
+    <div class="doctrine-header">
+      <div class="doctrine-number">VIII</div>
+      <h2 class="doctrine-title">The Country Ladder</h2>
+    </div>
+    <p class="doctrine-body">Komir Holdings enters new countries through a five-rung sequence. No rung is skipped. Each one proves that the market is real before the next level of investment is committed. The sequence ensures that expansion is funded by evidence, not by optimism.</p>
+
+    <div class="ladder-stack">
+      <div class="ladder-rung">
+        <div class="ladder-step">RUNG 1</div>
+        <div class="ladder-desc">Country Lead deployed remotely. Mapping the market, identifying opportunities, working in Komir's interest from within the country. No office. No overhead. Proof of signal.</div>
+      </div>
+      <div class="ladder-rung">
+        <div class="ladder-step">RUNG 2</div>
+        <div class="ladder-desc">Remote wins. Two to five engagements built from outside the country, delivered remotely. Revenue generated before any physical presence is established.</div>
+      </div>
+      <div class="ladder-rung">
+        <div class="ladder-step">RUNG 3</div>
+        <div class="ladder-desc">Local voice. A native content creator who understands the market produces visibility — content, connections, and presence that only someone on the ground can generate.</div>
+      </div>
+      <div class="ladder-rung">
+        <div class="ladder-step">RUNG 4</div>
+        <div class="ladder-desc">Komir principal arrives. Revenue-funded. Operates from flexible workspace. No permanent infrastructure until the market has been proven with real revenue and real clients.</div>
+      </div>
+      <div class="ladder-rung">
+        <div class="ladder-step">RUNG 5</div>
+        <div class="ladder-desc">Country Lead appointed. In-person proof has been established. Permanent presence formalised. The country is now a Komir operating market with full infrastructure.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-wordmark">KOMIR HOLDINGS<span>.</span></div>
+    <div class="footer-meta">
+      <div class="footer-location">Abuja, Nigeria · Global Headquarters</div>
+      <div>&copy; 2026 Komir Holdings. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
