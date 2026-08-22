@@ -1,13 +1,40 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/home.html" },
-    { "source": "/ventures", "destination": "/ventures.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/structure", "destination": "/structure.html" },
-    { "source": "/doctrine", "destination": "/doctrine.html" },
-    { "source": "/hq", "destination": "/hq.html" },
-    { "source": "/design", "destination": "/design.html" },
-    { "source": "/capital", "destination": "/capital.html" }
+    {
+      "source": "/",
+      "destination": "/home.html"
+    },
+    {
+      "source": "/ventures",
+      "destination": "/ventures.html"
+    },
+    {
+      "source": "/campus",
+      "destination": "/campus.html"
+    },
+    {
+      "source": "/capital",
+      "destination": "/capital.html"
+    },
+    {
+      "source": "/capital-building",
+      "destination": "/capital-building.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/structure",
+      "destination": "/structure.html"
+    },
+    {
+      "source": "/doctrine",
+      "destination": "/doctrine.html"
+    }
   ]
 }
