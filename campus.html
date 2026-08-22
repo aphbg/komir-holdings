@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--charcoal:#111;--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--purple:#843287;--pg:rgba(132,50,135,0.25);--pl:rgba(132,50,135,0.4);--pd:rgba(132,50,135,0.12);--w:#FFF;--w9:rgba(255,255,255,0.9);--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w2:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08)}
+:root{--charcoal:#111;--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--purple:#843287;--pg:rgba(132,50,135,0.25);--pl:rgba(132,50,135,0.4);--w:#FFF;--w9:rgba(255,255,255,0.9);--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w2:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08)}
 html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;font-weight:400;color:var(--w);background:var(--cd);line-height:1.7;-webkit-font-smoothing:antialiased}
 .c{max-width:1140px;margin:0 auto;padding:0 40px}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--w08)}
@@ -25,24 +25,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.9
 .mm{display:none;position:fixed;top:61px;left:0;right:0;background:var(--cd);border-bottom:1px solid var(--w08);padding:24px 40px;z-index:99}.mm a{display:block;font-family:'Outfit',sans-serif;font-size:16px;color:var(--w5);padding:12px 0;border-bottom:1px solid var(--w08);text-decoration:none}.mm a:last-child{border-bottom:none}.mm a.active{color:var(--purple)}.mm.open{display:block}
 section{padding:100px 0}
 
-/* HERO */
 .hero{padding:180px 0 60px;border-bottom:1px solid var(--w08);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--pg) 0%,transparent 55%);pointer-events:none}
 .ey{font-family:'Sora',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.2em;color:var(--purple);margin-bottom:24px;display:flex;align-items:center;gap:16px}.ey::before{content:'';width:32px;height:2px;background:var(--purple)}
 .pt{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(32px,4.5vw,48px);line-height:1.15;margin-bottom:20px;position:relative}
-.ps{font-size:17px;line-height:1.85;color:var(--w5);max-width:600px}
+.ps{font-size:17px;line-height:1.85;color:var(--w5);max-width:620px}
 .se{font-family:'Sora',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.2em;color:var(--purple);margin-bottom:20px}
 .st{font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(22px,2.8vw,32px);line-height:1.25;color:var(--w);margin-bottom:20px;max-width:640px}
 .sb{font-size:16px;line-height:1.85;color:var(--w7);max-width:660px}
-
-/* CLUSTER HEADERS */
-.cluster{margin-bottom:56px}
-.cluster-bar{padding:14px 24px;margin-bottom:20px;display:flex;align-items:center;gap:12px}
-.cluster-bar.core{background:linear-gradient(135deg,#843287,#6B2570)}
-.cluster-bar.people{background:linear-gradient(135deg,#2D6A4F,#1B4332)}
-.cluster-bar.commercial{background:linear-gradient(135deg,#7C5A2E,#5C3D1F)}
-.cluster-name{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.06em;color:var(--w)}
-.cluster-icon{font-size:18px}
 
 /* BUILDING CARDS */
 .bg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -57,9 +47,8 @@ section{padding:100px 0}
 
 /* GROUNDS */
 .gg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
-.gi{background:var(--cc);border:1px solid var(--w08);padding:20px;display:flex;gap:14px;align-items:flex-start;transition:border-color 0.3s}.gi:hover{border-color:var(--pl)}
-.gi-icon{font-size:20px;min-width:28px;text-align:center}
-.gi-body{flex:1}
+.gi{background:var(--cc);border:1px solid var(--w08);padding:20px;transition:border-color 0.3s}.gi:hover{border-color:var(--pl)}
+.gi-icon{font-size:18px;margin-bottom:8px;display:block}
 .gn{font-family:'Sora',sans-serif;font-weight:600;font-size:13px;color:var(--w);margin-bottom:4px}
 .gd{font-size:12px;line-height:1.6;color:var(--w7)}
 
@@ -94,58 +83,70 @@ footer{padding:40px 0;border-top:1px solid var(--w08);background:var(--cd)}.fi{d
 <section class="hero"><div class="c">
 <div class="ey">KOMIR HOLDINGS</div>
 <h1 class="pt">Global Headquarters<br>Campus Masterplan</h1>
-<p class="ps">A self-sustaining campus across 500+ hectares — power-independent, internally connected, and built so that every building serves both the portfolio and the public.</p>
+<p class="ps">A campus of interconnected buildings designed for one purpose: an environment where exceptional people build, trade, learn, recover, and compound — all within walking distance, all under one standard, all owned by Komir Holdings.</p>
 </div></section>
 
-<!-- ═══ MASTERPLAN ═══ -->
+<!-- ═══ THE CAMPUS ═══ -->
 <section style="background:var(--charcoal);padding:100px 0"><div class="c">
-<div class="se">CAMPUS MASTERPLAN</div>
+<div class="se">THE CAMPUS</div>
 <h2 class="st">Thirteen buildings. One standard.</h2>
-<p class="sb">Ventures operate from various locations until the campus consolidates everything under one site. Internal campus transport connects every building — distance is never a barrier.</p>
+<p class="sb">Each building serves a distinct function. All are interconnected by walkways, green corridors, and shared infrastructure. The campus operates 24 hours.</p>
 <div class="bg" style="margin-top:48px">
-<div class="bc"><div class="bc-icon">⚡</div><div class="bc-body"><div class="bn">Technology Hub</div><div class="bv">JOVILEX · KINETIC · SNAPLEAD</div><p class="bd">The build centre. Products designed, coded, and shipped. Open-plan workspaces, private offices, build rooms, dedicated demo space.</p></div></div>
-<div class="bc"><div class="bc-icon">🏦</div><div class="bc-body"><div class="bn">Capital Building</div><div class="bv">CAPITAL ENGINE · TREASURY · INCUBATOR</div><p class="bd">The financial headquarters. Secure, dedicated building for the proprietary trading operation, treasury, capital allocation, and the Komir incubator programme.</p><a href="/capital-building" class="bc-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3H3v10h10v-3M9 2h5v5M14 2L7 9"/></svg>Full building concept</a></div></div>
-<div class="bc"><div class="bc-icon">🛡️</div><div class="bc-body"><div class="bn">GovTech Wing</div><div class="bv">COMMAND CENTRE · PAYVIF</div><p class="bd">Secure, classified-capable facility. Isolated networks, controlled access, confidential meeting facilities for sovereign-level operations.</p></div></div>
-<div class="bc"><div class="bc-icon">🖥️</div><div class="bc-body"><div class="bn">Data Centre</div><div class="bv">KOMIR CYBERSECURITY</div><p class="bd">Tier IV, fault-tolerant, 99.995% uptime. Biometric entry. Dedicated solar + lithium battery with 72-hour autonomous capacity. Zero diesel.</p></div></div>
-<div class="bc"><div class="bc-icon">🎓</div><div class="bc-body"><div class="bn">Praxis School</div><div class="bv">PRAXIS · KINETIC</div><p class="bd">Open to the public nationwide. AI-native education — two hours of compressed academics, the rest building real capability. Serves the city, not just staff families.</p></div></div>
-<div class="bc"><div class="bc-icon">💪</div><div class="bc-body"><div class="bn">Wellness Centre</div><div class="bv">ELRUTA · HEALTH</div><p class="bd">Gym, recovery, clinic, mental health, rest pods. Mandatory 30-minute rest for 6+ hour shifts. Operational standard, not a perk.</p></div></div>
-<div class="bc"><div class="bc-icon">🏠</div><div class="bc-body"><div class="bn">Residential</div><div class="bv">STAFF · EXECUTIVE · INCUBATOR</div><p class="bd">On-campus housing, short-stay for visiting executives, and dedicated residential for incubator cohort participants. Optional — at the standard Komir sets.</p></div></div>
-<div class="bc"><div class="bc-icon">👶</div><div class="bc-body"><div class="bn">Nursery & Childcare</div><div class="bv">FAMILY INFRASTRUCTURE</div><p class="bd">No team member chooses between work and family. Campus transport connects every building — the childcare standard matches everything else.</p></div></div>
-<div class="bc"><div class="bc-icon">🎤</div><div class="bc-body"><div class="bn">Komir Industries Venue</div><div class="bv">EVENTS · CONFERENCES · MEDIA</div><p class="bd">Multi-purpose commercial venue. Corporate events, live recordings, government hosting. Church use on Sundays at no cost. Media Studio adjacent for production.</p></div></div>
-<div class="bc"><div class="bc-icon">🌐</div><div class="bc-body"><div class="bn">The Forum</div><div class="bv">KOMIR HOLDINGS</div><p class="bd">Where the world meets Komir. Sovereign-grade hosting for experts, delegations, and heads of state. Configurable suites — lab, workshop, studio, or SCIF-grade briefing room. Presidential-standard accommodation.</p></div></div>
-<div class="bc"><div class="bc-icon">🍃</div><div class="bc-body"><div class="bn">The Exhale</div><div class="bv">DECOMPRESSION · COMMUNITY</div><p class="bd">Premium decompression lounge — open 24 hours. Every team member ends their shift here with a handwritten end-of-day report. No screens, no hierarchy. Quarterly community celebrations.</p></div></div>
-<div class="bc"><div class="bc-icon">☕</div><div class="bc-body"><div class="bn">Coworking & Elruta Kitchen</div><div class="bv">REVENUE · NUTRITION</div><p class="bd">Public-facing coworking and Elruta restaurant. One nutrition standard across every building. Open to anyone. Revenue-generating from day one.</p></div></div>
-<div class="bc"><div class="bc-icon">🔑</div><div class="bc-body"><div class="bn">Founder's Office</div><div class="bv">PERSONAL · COMMAND</div><p class="bd">The founder's solitude space within the campus. Strategic decisions, key relationships, and holding company governance. A personal command centre.</p></div></div>
-</div></div></section>
 
-<!-- ═══ GROUNDS ═══ -->
+<div class="bc"><div class="bc-icon">🏛️</div><div class="bc-body"><div class="bn">The Executive Building</div><div class="bv">KOMIR HOLDINGS</div><p class="bd">Komir Holdings executive office. The nerve centre of a multi-venture holding company. Board room, founder's office, investor meeting spaces, and the legal and financial operations that govern every venture in the portfolio.</p></div></div>
+
+<div class="bc"><div class="bc-icon">⚡</div><div class="bc-body"><div class="bn">The Operations Building</div><div class="bv">JOVILEX · KINETIC · SNAPLEAD</div><p class="bd">The core team workspace for Jovilex (AI-powered global services), Kinetic (digital education platform), and SnapLead (AI lead response SaaS). Where products are built, clients are served, and software ships daily. Open-plan and private offices, build rooms, and a dedicated demo space for client presentations.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🏦</div><div class="bc-body"><div class="bn">The Capital Building</div><div class="bv">CAPITAL ENGINE · WEALTH ENGINE</div><p class="bd">The capital engine of Komir Holdings. A secure, purpose-built facility housing the proprietary trading operation, treasury, capital allocation, and the Komir incubator programme. Designed for focus, speed, and precision — soundproofed, climate-controlled, and equipped for extended sessions.</p><a href="/capital-building" class="bc-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3H3v10h10v-3M9 2h5v5M14 2L7 9"/></svg>Full building concept</a></div></div>
+
+<div class="bc"><div class="bc-icon">🛡️</div><div class="bc-body"><div class="bn">The GovTech Wing</div><div class="bv">COMMAND CENTRE · PAYVIF</div><p class="bd">Secure operations centre for Command Centre (intelligence and operational efficiency platform) and Payvif (government revenue aggregation). One location only. Controlled access. Built to defence-grade security standards. This is where government contracts are serviced and classified operations are managed.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🎓</div><div class="bc-body"><div class="bn">Praxis</div><div class="bv">THE SCHOOL · EDUCATION</div><p class="bd">A dedicated building with its own entrance, outdoor space, and child-specific security. Praxis — an AI-native school compressing world-class academics into two hours and building the life skills conventional schools ignore. Learning halls, workshop spaces, a kitchen for cooking programmes, and outdoor areas for physical activity. Parents drop their child here, walk to the operations building, and go to work.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🌐</div><div class="bc-body"><div class="bn">The Coworking Hub</div><div class="bv">PUBLIC-FACING · COMMERCIAL</div><p class="bd">Premium coworking space open to the public. Private booths for deep work and calls. Meeting rooms available for hire. A commercial front that generates revenue, builds community, and positions Komir as a physical presence in Nigeria's business landscape. Open 24 hours.</p></div></div>
+
+<div class="bc"><div class="bc-icon">💪</div><div class="bc-body"><div class="bn">The Wellness Centre</div><div class="bv">PERFORMANCE INFRASTRUCTURE</div><p class="bd">Fitness facility with strength and movement equipment. Recovery wing with sauna, rest pods, and decompression spaces. On-site nursery for children from 36 months with dedicated nannies. This building exists because performance requires recovery, and parents should never have to choose between their work and their child.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🔑</div><div class="bc-body"><div class="bn">The Founder's Office</div><div class="bv">FOUNDER · PRIVATE</div><p class="bd">A separate, private workspace — inaccessible to the public and disconnected from daily operations. This is where high-level strategy, creation, and deep work happen. The founder operates here three days a week. Every return to the campus brings new products, new milestones, and new records. The space where the next decade is designed.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🍽️</div><div class="bc-body"><div class="bn">Elruta</div><div class="bv">THE KITCHEN · NUTRITION</div><p class="bd">Not a canteen — a nutrition system. Everyone on campus eats by design: macro-calculated, protein-tracked meals engineered for performance. Air-fried crispy tender chicken with buffalo and cane sauce. Premium Greek yogurt with strawberry and natural honey. Protein shakes with vanilla and coconut milk. Cottage cheese. Weight gainers. Every meal is designed to fuel output, not just satisfy hunger. Run as a commercial brand — Elruta — serving the campus internally and selling to corporate offices and the public externally.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🎤</div><div class="bc-body"><div class="bn">Komir Media</div><div class="bv">THE STUDIO · PRODUCTION</div><p class="bd">Full production studio for Komir's media arm. Home of the Hey Dad show, gospel broadcasting via Church Television, corporate media production, and a creative hub for young producers. Sound stage, editing suites, podcast booths, and a content production floor. Every piece of Komir content — from social media to broadcast television — originates here.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🌍</div><div class="bc-body"><div class="bn">The Forum</div><div class="bv">THE FORUM · KOMIR HOLDINGS</div><p class="bd">Where the world meets Komir. A sovereign-grade facility designed so that any expert, from any field, at any level, can be received on campus and operate at full capacity without leaving the campus. Configurable ground-floor suites adapt to any engagement — research lab, engineering workshop, design studio, or briefing room. Tools, software, and equipment are staged before arrival. Executive-grade private suites on upper floors with in-room workspaces for extended stays. Private dining, dedicated connectivity infrastructure, and presidential-standard hosting. Operates as a standalone business under Komir Holdings with its own identity and revenue model.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🍃</div><div class="bc-body"><div class="bn">The Exhale</div><div class="bv">THE EXHALE · KOMIR HOLDINGS</div><p class="bd">A premium decompression lounge — open upper floor, designed for tea, soft music, and unwinding as its daily function. Open 24 hours because shifts end at every hour. Candles, floor seating, focus-wave sounds, no screens. Every team member ends their shift here with a handwritten end-of-day report — a journal template that reconnects the brain through writing, aids detachment, and prepares the body for sleep. No tiers, no hierarchy. The space is large enough to host communal events — milestone celebrations, cultural festivals, weddings, and occasional social nights managed by Komir Industries. The next day, it returns to its default state: calm. Operates as a standalone brand under Komir Holdings.</p></div></div>
+
+<div class="bc"><div class="bc-icon">🖥️</div><div class="bc-body"><div class="bn">The Data Centre</div><div class="bv">SOVEREIGN INFRASTRUCTURE</div><p class="bd">Tier IV, fault-tolerant, 99.995% uptime. Biometric entry. Dedicated solar array with lithium-grade battery bank providing 72-hour autonomous capacity at full load. Zero diesel. Sovereign cloud infrastructure for the entire Komir portfolio — every venture's data stays on African soil, under African ownership. Colocation services available to external enterprise and government clients.</p></div></div>
+
+</div>
+</div></section>
+
+<!-- ═══ CAMPUS GROUNDS ═══ -->
 <section style="background:var(--cd);padding:100px 0"><div class="c">
 <div class="se">CAMPUS GROUNDS</div>
 <h2 class="st">Beyond the buildings.</h2>
 <div class="gg">
-<div class="gi"><div class="gi-icon">☀️</div><div class="gi-body"><div class="gn">Solar Farm & Battery</div><p class="gd">Total energy independence. Dedicated solar farm, lithium battery bank. Zero grid. Zero diesel. Permanent.</p></div></div>
-<div class="gi"><div class="gi-icon">⚽</div><div class="gi-body"><div class="gn">Football Pitch</div><p class="gd">Full-size pitch. Sport is recovery infrastructure, not recreation.</p></div></div>
-<div class="gi"><div class="gi-icon">🏟️</div><div class="gi-body"><div class="gn">Mini Stadium</div><p class="gd">Events, competitions, community tournaments. Open to the public.</p></div></div>
-<div class="gi"><div class="gi-icon">🌿</div><div class="gi-body"><div class="gn">Green Corridors</div><p class="gd">Plants, herbs, grass underfoot. Every pathway connects you to nature.</p></div></div>
-<div class="gi"><div class="gi-icon">🤫</div><div class="gi-body"><div class="gn">Quiet Zones</div><p class="gd">Zero-disturbance outdoor spaces. Benches, shade, stillness.</p></div></div>
-<div class="gi"><div class="gi-icon">🕊️</div><div class="gi-body"><div class="gn">The Sanctuary</div><p class="gd">Multi-faith worship space. Chapel and prayer room sharing one sacred facility. Open to campus and community.</p></div></div>
-<div class="gi"><div class="gi-icon">🚌</div><div class="gi-body"><div class="gn">Campus Transport</div><p class="gd">Shuttles, campus vehicles, planned rail. Movement is never a barrier.</p></div></div>
-<div class="gi"><div class="gi-icon">😴</div><div class="gi-body"><div class="gn">The Nap Policy</div><p class="gd">6+ hour shift = mandatory 30-minute rest. Rest pods and quiet zones. Operational standard.</p></div></div>
-<div class="gi"><div class="gi-icon">🔄</div><div class="gi-body"><div class="gn">Shift Architecture</div><p class="gd">3-4 humans per role, 6-8 hour rotating shifts. Two-hour overlap. The campus never closes.</p></div></div>
+<div class="gi"><span class="gi-icon">☀️</span><div class="gn">Solar Farm & Battery</div><p class="gd">Dedicated solar farm serving every building. Lithium-grade battery bank. Zero national grid dependency. Zero diesel. Total energy independence — permanent.</p></div>
+<div class="gi"><span class="gi-icon">⚽</span><div class="gn">Football Pitch</div><p class="gd">Full-size pitch. Sport is recovery infrastructure, not recreation.</p></div>
+<div class="gi"><span class="gi-icon">🏟️</span><div class="gn">Mini Stadium</div><p class="gd">Events, competitions, community tournaments. Open to the public.</p></div>
+<div class="gi"><span class="gi-icon">🌿</span><div class="gn">Green Corridors</div><p class="gd">Plants, herbs, grass underfoot. Every pathway connects you to nature.</p></div>
+<div class="gi"><span class="gi-icon">🤫</span><div class="gn">Quiet Zones</div><p class="gd">Zero-disturbance outdoor spaces. Benches, shade, stillness.</p></div>
+<div class="gi"><span class="gi-icon">🕊️</span><div class="gn">The Sanctuary</div><p class="gd">Multi-faith worship space. Chapel and prayer room sharing one sacred facility. Open to campus and community.</p></div>
+<div class="gi"><span class="gi-icon">😴</span><div class="gn">The Nap Policy</div><p class="gd">Any staff member working a 6+ hour shift must take a mandatory 30-minute rest. Rest pods in the Wellness Centre, quiet zones outdoors. Not a perk — an operational standard.</p></div>
 </div>
 </div></section>
 
-<!-- ═══ PRINCIPLES ═══ -->
+<!-- ═══ OPERATING PRINCIPLES ═══ -->
 <section style="background:var(--charcoal);padding:100px 0"><div class="c">
-<div class="se">CAMPUS PRINCIPLES</div>
+<div class="se">OPERATING PRINCIPLES</div>
 <h2 class="st">The standard for every Komir space.</h2>
 <div class="pg">
-<div class="pr"><div class="pn">Zero Diesel, Zero Grid</div><p class="ppd">Solar arrays and lithium battery banks. Data centre at 72-hour autonomous capacity. No generator. No fuel. No dependency.</p></div>
-<div class="pr"><div class="pn">One Design Language</div><p class="ppd">A single document governs every surface, material, and detail across every building. The standard is set once and replicated everywhere.</p></div>
-<div class="pr"><div class="pn">Family-First Infrastructure</div><p class="ppd">Childcare, education, wellness, and nutrition built into the campus as infrastructure, not perks. The system works when people are whole.</p></div>
-<div class="pr"><div class="pn">One Nutrition Standard</div><p class="ppd">Every meal on campus comes through Elruta. What enters the body is designed, not chosen from a menu.</p></div>
-<div class="pr"><div class="pn">Six Workstreams</div><p class="ppd">Architecture, interior, landscape, structural/civil, MEP/smart systems, project management. Each led by a strategic principal.</p></div>
-<div class="pr"><div class="pn">Serve Then Commercialise</div><p class="ppd">Every building serves the portfolio first. Revenue from the public, standard set by internal demand.</p></div>
+<div class="pr"><div class="pn">24-hour functionality</div><p class="ppd">The campus never closes. Different zones serve different hours. The trading floor follows global markets. The hub serves the public around the clock. The school operates daytime. The wellness centre is always available.</p></div>
+<div class="pr"><div class="pn">Recovery is infrastructure</div><p class="ppd">Sleep, movement, decompression, and access to nature are not benefits. They are operational requirements engineered into every building and every walkway on the campus.</p></div>
+<div class="pr"><div class="pn">Parents don't choose</div><p class="ppd">Childcare and education are on campus. No team member chooses between their work and their family. The child learns at Praxis. The parent builds at Jovilex. They are 200 metres apart.</p></div>
+<div class="pr"><div class="pn">Green is structural</div><p class="ppd">Plants, herbs, grass, and natural light are not decoration. They are design requirements in every building and every outdoor space. People put their feet on grass during their workday.</p></div>
+<div class="pr"><div class="pn">One standard, applied globally</div><p class="ppd">What is built here defines the DNA for every Komir workspace worldwide. This campus is the reference point. Every future location meets this standard or does not carry the name.</p></div>
 </div>
 </div></section>
 
@@ -156,7 +157,7 @@ footer{padding:40px 0;border-top:1px solid var(--w08);background:var(--cd)}.fi{d
 <div class="phase-grid">
 <div class="ph"><div class="ph-label">PHASE 1 · NOW</div><div class="ph-name">Warehouse — Nigeria</div><p class="ph-desc">A functional commercial space. The entire company starts here — building, trading, operating, training, eating, exercising. Everything under one roof until ventures grow enough to need their own locations.</p></div>
 <div class="ph"><div class="ph-label">PHASE 2 · 2027</div><div class="ph-name">Lagos Floor</div><p class="ph-desc">A single premium floor for market presence. Client-facing operations, trading desks, coworking, fitness, recovery, nursery. Self-funded. Establishes the design DNA every future space inherits.</p></div>
-<div class="ph"><div class="ph-label">PHASE 3 · 2028–2030+</div><div class="ph-name">Global HQ Campus</div><p class="ph-desc">All ventures consolidated under one site. Thirteen buildings, three clusters. Externally financed from proven operations. The Founder's Office sits within as a personal command centre.</p></div>
+<div class="ph"><div class="ph-label">PHASE 3 · 2028–2030+</div><div class="ph-name">Global HQ Campus</div><p class="ph-desc">The full thirteen-building campus. Externally financed from proven operations. All ventures consolidated under one site. The Founder's Office sits within as a personal command centre.</p></div>
 <div class="ph"><div class="ph-label">PHASE 4 · GENERATIONAL</div><div class="ph-name">Jolag Farm City</div><p class="ph-desc">Large-scale agricultural city — food production, processing, housing, and industry. Institutional finance engaged. The billion-dollar layer — a city built around food and industry.</p></div>
 </div>
 </div></section>
