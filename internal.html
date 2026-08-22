@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Command View — Komir Holdings Internal</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--c3:#252525;--purple:#843287;--pg:rgba(132,50,135,0.25);--pl:rgba(132,50,135,0.4);--pd:rgba(132,50,135,0.12);--w:#FFF;--w9:rgba(255,255,255,0.9);--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w3:rgba(255,255,255,0.3);--w2:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08);--w04:rgba(255,255,255,0.04);--green:#10B981;--amber:#FF7A2E;--red:#EF4444}
+body{font-family:'Outfit',sans-serif;background:var(--cd);color:var(--w);min-height:100vh;-webkit-font-smoothing:antialiased;display:flex}
+
+/* ═══ SIDEBAR ═══ */
+.sidebar{width:240px;background:var(--cs);border-right:1px solid var(--w08);position:fixed;top:0;bottom:0;left:0;display:flex;flex-direction:column;z-index:50}
+.sb-logo{padding:24px 20px 20px;border-bottom:1px solid var(--w08)}
+.sb-logo a{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.18em;color:var(--w5);text-decoration:none}.sb-logo a span{color:var(--purple)}
+.sb-label{font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.15em;color:var(--w3);padding:0 20px;margin-top:20px;margin-bottom:8px}
+.sb-nav{flex:1;padding:0 8px}
+.sb-item{display:flex;align-items:center;gap:12px;padding:10px 12px;font-size:14px;color:var(--w5);text-decoration:none;transition:all 0.15s;margin-bottom:2px}
+.sb-item:hover{color:var(--w);background:var(--w04)}
+.sb-item.active{color:var(--w);background:var(--pd);border-left:2px solid var(--purple);padding-left:10px}
+.sb-icon{font-size:16px;min-width:20px;text-align:center}
+.sb-bottom{padding:16px 20px;border-top:1px solid var(--w08)}
+.sb-user{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sb-avatar{width:28px;height:28px;background:var(--purple);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:11px;color:var(--w)}
+.sb-name{font-size:13px;color:var(--w7)}
+.sb-role{font-size:11px;color:var(--w3);font-weight:300}
+.sb-links{display:flex;gap:16px}
+.sb-links a{font-size:11px;color:var(--w3);text-decoration:none;transition:color 0.2s}.sb-links a:hover{color:var(--w5)}
+
+/* ═══ MAIN CONTENT ═══ */
+.main{margin-left:240px;flex:1;min-height:100vh;padding:32px 40px 60px}
+
+/* HEADER */
+.greeting{font-family:'Sora',sans-serif;font-weight:700;font-size:24px;margin-bottom:4px}
+.greeting em{font-style:normal;color:var(--purple)}
+.date-line{font-size:13px;color:var(--w3);font-weight:300;margin-bottom:36px}
+
+/* METRIC CARDS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}
+.metric{background:var(--cc);border:1px solid var(--w08);padding:20px;transition:border-color 0.2s}
+.metric:hover{border-color:var(--pl)}
+.metric-label{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.12em;color:var(--w3);margin-bottom:8px}
+.metric-value{font-family:'Sora',sans-serif;font-weight:800;font-size:28px;color:var(--w)}
+.metric-note{font-size:12px;color:var(--w3);margin-top:4px;font-weight:300}
+.metric-value.green{color:var(--green)}
+.metric-value.purple{color:var(--purple)}
+
+/* SECTION HEADERS */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;margin-top:36px}
+.section-label{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--w)}
+.section-count{font-size:12px;color:var(--w3);font-weight:300}
+
+/* DECISION QUEUE */
+.queue{display:flex;flex-direction:column;gap:8px}
+.qi{background:var(--cc);border:1px solid var(--w08);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:border-color 0.2s;cursor:default}
+.qi:hover{border-color:var(--pl)}
+.qi-priority{font-family:'Sora',sans-serif;font-weight:700;font-size:10px;letter-spacing:0.08em;padding:4px 10px;min-width:70px;text-align:center}
+.qi-priority.urgent{background:rgba(239,68,68,0.12);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
+.qi-priority.standard{background:var(--pd);color:#B06AB3;border:1px solid var(--pl)}
+.qi-priority.ready{background:var(--w04);color:var(--w3);border:1px solid var(--w08)}
+.qi-body{flex:1}
+.qi-title{font-size:14px;color:var(--w9)}
+.qi-source{font-size:11px;color:var(--w3);margin-top:2px}
+.qi-date{font-size:11px;color:var(--w2);white-space:nowrap}
+
+/* PORTFOLIO STRIP */
+.portfolio-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.v-card{background:var(--cc);border:1px solid var(--w08);padding:16px;transition:border-color 0.2s;cursor:default}
+.v-card:hover{border-color:var(--pl)}
+.v-name{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--w);margin-bottom:4px}
+.v-chip{display:inline-block;font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.08em;padding:3px 8px;margin-bottom:8px}
+.v-chip.live{background:var(--pd);color:#B06AB3;border:1px solid var(--pl)}
+.v-chip.spec{background:var(--w04);color:var(--w5);border:1px solid var(--w08)}
+.v-chip.concept{background:var(--w04);color:var(--w3);border:1px solid var(--w08)}
+.v-chip.infra{background:rgba(16,185,129,0.08);color:var(--green);border:1px solid rgba(16,185,129,0.2)}
+.v-status{font-size:12px;color:var(--w3);line-height:1.5;font-weight:300}
+
+/* RECENT DOCS */
+.docs-list{display:flex;flex-direction:column;gap:8px}
+.doc-row{background:var(--cc);border:1px solid var(--w08);padding:14px 20px;display:flex;align-items:center;gap:16px;transition:border-color 0.2s;cursor:default}
+.doc-row:hover{border-color:var(--pl)}
+.doc-icon{font-size:18px;min-width:24px;text-align:center}
+.doc-body{flex:1}
+.doc-title{font-size:14px;color:var(--w9)}
+.doc-cat{font-size:11px;color:var(--w3);margin-top:2px}
+.doc-date{font-size:11px;color:var(--w2);white-space:nowrap}
+
+/* CAPITAL SNAPSHOT */
+.cap-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cap-card{background:var(--cc);border:1px solid var(--w08);padding:20px;text-align:center;transition:border-color 0.2s}
+.cap-card:hover{border-color:var(--pl)}
+.cap-label{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.1em;color:var(--w3);margin-bottom:8px}
+.cap-value{font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:var(--w)}
+.cap-note{font-size:11px;color:var(--w2);margin-top:4px;font-weight:300}
+
+/* MOBILE */
+.mobile-header{display:none;position:fixed;top:0;left:0;right:0;background:var(--cs);border-bottom:1px solid var(--w08);padding:16px 20px;z-index:60;align-items:center;justify-content:space-between}
+.mobile-header .wm{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.15em;color:var(--w5);text-decoration:none}.mobile-header .wm span{color:var(--purple)}
+.mobile-toggle{background:none;border:none;cursor:pointer;padding:4px}.mobile-toggle svg{width:24px;height:24px;stroke:var(--w);stroke-width:2;fill:none}
+.sidebar-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:45}
+.sidebar-overlay.open{display:block}
+
+@media(max-width:820px){
+  .metrics{grid-template-columns:1fr 1fr}
+  .cap-row{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .sidebar{transform:translateX(-100%);transition:transform 0.25s;width:280px}
+  .sidebar.open{transform:translateX(0)}
+  .mobile-header{display:flex}
+  .main{margin-left:0;padding:80px 20px 40px}
+  .metrics{grid-template-columns:1fr 1fr}
+  .portfolio-strip{grid-template-columns:1fr}
+  .greeting{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+  <a href="/" class="wm">KOMIR<span>.</span></a>
+  <button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')" aria-label="Menu">
+    <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</div>
+<div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('open')"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-logo"><a href="/">KOMIR HOLDINGS<span>.</span></a></div>
+  <div class="sb-label">INTERNAL</div>
+  <nav class="sb-nav">
+    <a href="/internal" class="sb-item active"><span class="sb-icon">◉</span>Command View</a>
+    <a href="/internal/portfolio" class="sb-item"><span class="sb-icon">◫</span>Portfolio</a>
+    <a href="/internal/capital" class="sb-item"><span class="sb-icon">◈</span>Capital &amp; Treasury</a>
+    <a href="/internal/governance" class="sb-item"><span class="sb-icon">◊</span>Governance</a>
+    <a href="/internal/vault" class="sb-item"><span class="sb-icon">▣</span>The Vault</a>
+    <a href="/internal/bench" class="sb-item"><span class="sb-icon">◎</span>The Bench</a>
+    <a href="/internal/structure" class="sb-item"><span class="sb-icon">⊞</span>Structure</a>
+    <a href="/internal/doctrine" class="sb-item"><span class="sb-icon">▤</span>Doctrine</a>
+  </nav>
+  <div class="sb-bottom">
+    <div class="sb-user">
+      <div class="sb-avatar">K</div>
+      <div><div class="sb-name">Kenneth Omirigbe</div><div class="sb-role">Founder</div></div>
+    </div>
+    <div class="sb-links">
+      <a href="/">Public Site</a>
+      <a href="#" onclick="localStorage.removeItem('komir_session');window.location.href='/login'">Sign Out</a>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- GREETING -->
+  <h1 class="greeting">Good <em id="timeGreeting">morning</em>, Ken.</h1>
+  <div class="date-line" id="dateLine"></div>
+
+  <!-- KEY METRICS -->
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-label">ACTIVE VENTURES</div>
+      <div class="metric-value">5</div>
+      <div class="metric-note">Live &amp; operational</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">CAPITAL ENGINE</div>
+      <div class="metric-value purple">Building</div>
+      <div class="metric-note">Indicator verification phase</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">IN BUILD</div>
+      <div class="metric-value">8</div>
+      <div class="metric-note">Frozen spec or product bible</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">OPEN DECISIONS</div>
+      <div class="metric-value">3</div>
+      <div class="metric-note">Awaiting founder input</div>
+    </div>
+  </div>
+
+  <!-- DECISION QUEUE -->
+  <div class="section-head">
+    <div class="section-label">Decision Queue</div>
+    <div class="section-count">3 pending</div>
+  </div>
+  <div class="queue">
+    <div class="qi">
+      <span class="qi-priority urgent">URGENT</span>
+      <div class="qi-body"><div class="qi-title">Komir Holdings website — final content review before removing noindex</div><div class="qi-source">Governance · Public Presence</div></div>
+      <div class="qi-date">Aug 2026</div>
+    </div>
+    <div class="qi">
+      <span class="qi-priority standard">STANDARD</span>
+      <div class="qi-body"><div class="qi-title">Capital Engine — complete indicator third iteration and verify before demo deployment</div><div class="qi-source">Capital &amp; Treasury</div></div>
+      <div class="qi-date">Aug 2026</div>
+    </div>
+    <div class="qi">
+      <span class="qi-priority ready">WHEN READY</span>
+      <div class="qi-body"><div class="qi-title">Ariff T / T Capital — deliver MSNR spec book and PineScript indicator package</div><div class="qi-source">Jovilex · Client Engagement</div></div>
+      <div class="qi-date">Aug 2026</div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO STRIP -->
+  <div class="section-head">
+    <div class="section-label">Portfolio</div>
+    <div class="section-count">29 ventures across 5 tiers</div>
+  </div>
+  <div class="portfolio-strip">
+    <div class="v-card"><div class="v-name">Jovilex</div><span class="v-chip live">LIVE</span><div class="v-status">Client portal, intake engine, admin dashboard deployed</div></div>
+    <div class="v-card"><div class="v-name">SnapLead</div><span class="v-chip live">LIVE</span><div class="v-status">Multi-tenant platform live, Hunter tier active, Retention Engine in build</div></div>
+    <div class="v-card"><div class="v-name">Church Digital</div><span class="v-chip live">LIVE</span><div class="v-status">Church Pulse live in production, licensing model designed</div></div>
+    <div class="v-card"><div class="v-name">Errands</div><span class="v-chip live">LIVE</span><div class="v-status">Beta live, escrow rail operational</div></div>
+    <div class="v-card"><div class="v-name">Capital Engine</div><span class="v-chip live">LIVE</span><div class="v-status">Spec v1.0 frozen, first detection layer in verification</div></div>
+    <div class="v-card"><div class="v-name">Command Centre</div><span class="v-chip spec">SPEC</span><div class="v-status">Personal tier in daily use, GovTech brand separate, AFRIDEX Oct 2026</div></div>
+    <div class="v-card"><div class="v-name">Payvif</div><span class="v-chip spec">SPEC</span><div class="v-status">Built product, DRC ministerial invitation on record</div></div>
+    <div class="v-card"><div class="v-name">Praxis</div><span class="v-chip spec">SPEC</span><div class="v-status">Product Bible v0.1 complete, 23 sections</div></div>
+    <div class="v-card"><div class="v-name">Kinetic</div><span class="v-chip spec">SPEC</span><div class="v-status">Five layers designed, internally funded</div></div>
+    <div class="v-card"><div class="v-name">Hey Dad</div><span class="v-chip spec">SPEC</span><div class="v-status">34-page show bible complete</div></div>
+    <div class="v-card"><div class="v-name">Tranche</div><span class="v-chip spec">SPEC</span><div class="v-status">Architecture locked, proving book phase queued</div></div>
+    <div class="v-card"><div class="v-name">Elruta</div><span class="v-chip concept">CONCEPT</span><div class="v-status">Live product line in personal use</div></div>
+    <div class="v-card"><div class="v-name">Komir Industries</div><span class="v-chip concept">CONCEPT</span><div class="v-status">Multi-purpose venue chain concept documented</div></div>
+    <div class="v-card"><div class="v-name">Loomie</div><span class="v-chip concept">CONCEPT</span><div class="v-status">Academy and capital desk concept designed</div></div>
+    <div class="v-card"><div class="v-name">Jolag Farm City</div><span class="v-chip concept">CONCEPT</span><div class="v-status">AFC engaged, post-election activation</div></div>
+  </div>
+
+  <!-- RECENT DOCUMENTS -->
+  <div class="section-head">
+    <div class="section-label">Recent Documents</div>
+    <div class="section-count">Latest additions</div>
+  </div>
+  <div class="docs-list">
+    <div class="doc-row"><span class="doc-icon">📄</span><div class="doc-body"><div class="doc-title">Komir Holdings — Five-Layer Governance Architecture</div><div class="doc-cat">Governance · Founder Protection</div></div><div class="doc-date">Aug 2026</div></div>
+    <div class="doc-row"><span class="doc-icon">📄</span><div class="doc-body"><div class="doc-title">Praxis Product Bible v0.1</div><div class="doc-cat">Venture · Education</div></div><div class="doc-date">Jul 2026</div></div>
+    <div class="doc-row"><span class="doc-icon">📄</span><div class="doc-body"><div class="doc-title">Jovilex Service Delivery Playbook</div><div class="doc-cat">Venture · Services</div></div><div class="doc-date">Jun 2026</div></div>
+    <div class="doc-row"><span class="doc-icon">📄</span><div class="doc-body"><div class="doc-title">MSNR Strategy Specification Book — T Capital</div><div class="doc-cat">Capital · Client Engagement</div></div><div class="doc-date">Jun 2026</div></div>
+    <div class="doc-row"><span class="doc-icon">📄</span><div class="doc-body"><div class="doc-title">Hey Dad — Show Bible</div><div class="doc-cat">Venture · Media</div></div><div class="doc-date">May 2026</div></div>
+  </div>
+
+  <!-- CAPITAL SNAPSHOT -->
+  <div class="section-head">
+    <div class="section-label">Capital Snapshot</div>
+    <div class="section-count"><a href="/internal/capital" style="color:var(--purple);text-decoration:none;font-family:'Sora',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.06em">VIEW FULL →</a></div>
+  </div>
+  <div class="cap-row">
+    <div class="cap-card"><div class="cap-label">CAPITAL BASE</div><div class="cap-value">—</div><div class="cap-note">Pre-deployment</div></div>
+    <div class="cap-card"><div class="cap-label">THIS PERIOD</div><div class="cap-value">—</div><div class="cap-note">Engine in build phase</div></div>
+    <div class="cap-card"><div class="cap-label">DEPLOYED TO VENTURES</div><div class="cap-value">—</div><div class="cap-note">Pre-allocation</div></div>
+  </div>
+
+</main>
+
+<script>
+// Auth check — soft check for preview, hard redirect on deployed site
+(function(){
+  const isDeployed = window.location.hostname.includes('komirholdings.com') || window.location.hostname.includes('vercel.app');
+  if (!isDeployed) return; // skip auth in preview
+  const s = localStorage.getItem('komir_session');
+  if (!s) { window.location.href = '/login'; return; }
+  try {
+    const session = JSON.parse(s);
+    if (!session.token || (Date.now() - session.ts) > 7 * 24 * 60 * 60 * 1000) {
+      localStorage.removeItem('komir_session');
+      window.location.href = '/login';
+    }
+  } catch(e) { localStorage.removeItem('komir_session'); window.location.href = '/login'; }
+})();
+
+// Time greeting
+const h = new Date().getHours();
+document.getElementById('timeGreeting').textContent = h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening';
+
+// Date line
+const d = new Date();
+const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+document.getElementById('dateLine').textContent = d.toLocaleDateString('en-GB', opts);
+</script>
+</body>
+</html>

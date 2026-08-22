@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structure — Komir Holdings Internal</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--purple:#843287;--pg:rgba(132,50,135,0.25);--pl:rgba(132,50,135,0.4);--pd:rgba(132,50,135,0.12);--w:#FFF;--w9:rgba(255,255,255,0.9);--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w3:rgba(255,255,255,0.3);--w2:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08);--w04:rgba(255,255,255,0.04);--green:#10B981;--red:#EF4444}
+body{font-family:'Outfit',sans-serif;background:var(--cd);color:var(--w);min-height:100vh;-webkit-font-smoothing:antialiased;display:flex}
+.sidebar{width:240px;background:var(--cs);border-right:1px solid var(--w08);position:fixed;top:0;bottom:0;left:0;display:flex;flex-direction:column;z-index:50}
+.sb-logo{padding:24px 20px 20px;border-bottom:1px solid var(--w08)}.sb-logo a{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.18em;color:var(--w5);text-decoration:none}.sb-logo a span{color:var(--purple)}
+.sb-label{font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.15em;color:var(--w3);padding:0 20px;margin-top:20px;margin-bottom:8px}
+.sb-nav{flex:1;padding:0 8px}.sb-item{display:flex;align-items:center;gap:12px;padding:10px 12px;font-size:14px;color:var(--w5);text-decoration:none;transition:all 0.15s;margin-bottom:2px}.sb-item:hover{color:var(--w);background:var(--w04)}.sb-item.active{color:var(--w);background:var(--pd);border-left:2px solid var(--purple);padding-left:10px}
+.sb-icon{font-size:16px;min-width:20px;text-align:center}
+.sb-bottom{padding:16px 20px;border-top:1px solid var(--w08)}.sb-user{display:flex;align-items:center;gap:10px;margin-bottom:12px}.sb-avatar{width:28px;height:28px;background:var(--purple);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:11px;color:var(--w)}.sb-name{font-size:13px;color:var(--w7)}.sb-role{font-size:11px;color:var(--w3);font-weight:300}
+.sb-links{display:flex;gap:16px}.sb-links a{font-size:11px;color:var(--w3);text-decoration:none}.sb-links a:hover{color:var(--w5)}
+.main{margin-left:240px;flex:1;min-height:100vh;padding:32px 40px 60px}
+.page-head{margin-bottom:36px}.page-label{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.15em;color:var(--purple);margin-bottom:8px}.page-title{font-family:'Sora',sans-serif;font-weight:800;font-size:28px;margin-bottom:8px}.page-desc{font-size:15px;color:var(--w5);max-width:560px;font-weight:300}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;margin-top:40px}.sl{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--w)}.sc{font-size:12px;color:var(--w3)}
+.divider{height:1px;background:var(--w08);margin:40px 0}
+/* ORG */
+.org{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:24px}
+.org-node{text-align:center;padding:20px 32px;min-width:220px}.org-primary{background:var(--purple)}.org-secondary{background:var(--cc);border:1px solid var(--w08)}
+.org-role{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--w);margin-bottom:2px}
+.org-desc{font-size:12px;color:var(--w7);font-weight:300}.org-primary .org-desc{color:rgba(255,255,255,0.85)}
+.org-line{width:2px;height:24px;background:var(--w2)}
+.org-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.org-row .org-node{min-width:140px;padding:14px 20px}
+.org-staff{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.org-staff .org-node{min-width:120px;padding:12px 16px;background:var(--cs);border:1px solid var(--w08)}
+.org-staff .org-role{font-size:11px}.org-staff .org-desc{font-size:10px}
+/* ROLE CARDS */
+.rc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.rc{background:var(--cc);border:1px solid var(--w08);padding:24px;transition:border-color 0.2s}.rc:hover{border-color:var(--pl)}
+.rc-tag{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.08em;color:var(--purple);margin-bottom:6px}
+.rc-name{font-family:'Sora',sans-serif;font-weight:700;font-size:17px;color:var(--w);margin-bottom:8px}
+.rc-body{font-size:13px;line-height:1.75;color:var(--w7)}
+.rc-path{margin-top:12px;padding-top:12px;border-top:1px solid var(--w08);font-family:'Sora',sans-serif;font-weight:600;font-size:12px;color:var(--w5);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rc-arrow{color:var(--purple)}
+/* STAFF GRID */
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.sc-card{background:var(--cc);border:1px solid var(--w08);padding:20px;transition:border-color 0.2s}.sc-card:hover{border-color:var(--pl)}
+.sc-name{font-family:'Sora',sans-serif;font-weight:600;font-size:15px;color:var(--w);margin-bottom:6px}
+.sc-desc{font-size:13px;line-height:1.65;color:var(--w7)}
+
+.mobile-header{display:none;position:fixed;top:0;left:0;right:0;background:var(--cs);border-bottom:1px solid var(--w08);padding:16px 20px;z-index:60;align-items:center;justify-content:space-between}
+.mobile-header .wm{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.15em;color:var(--w5);text-decoration:none}.mobile-header .wm span{color:var(--purple)}
+.mobile-toggle{background:none;border:none;cursor:pointer;padding:4px}.mobile-toggle svg{width:24px;height:24px;stroke:var(--w);stroke-width:2;fill:none}
+.sidebar-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:45}.sidebar-overlay.open{display:block}
+@media(max-width:820px){.rc-grid,.sg{grid-template-columns:1fr}}
+@media(max-width:680px){.sidebar{transform:translateX(-100%);transition:transform 0.25s;width:280px}.sidebar.open{transform:translateX(0)}.mobile-header{display:flex}.main{margin-left:0;padding:80px 20px 40px}.org-row,.org-staff{flex-direction:column;align-items:center}}
+</style>
+</head>
+<body>
+<div class="mobile-header"><a href="/" class="wm">KOMIR<span>.</span></a><button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div>
+<div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('open')"></div>
+<aside class="sidebar"><div class="sb-logo"><a href="/">KOMIR HOLDINGS<span>.</span></a></div><div class="sb-label">INTERNAL</div><nav class="sb-nav">
+<a href="/internal" class="sb-item"><span class="sb-icon">◉</span>Command View</a><a href="/internal/portfolio" class="sb-item"><span class="sb-icon">◫</span>Portfolio</a><a href="/internal/capital" class="sb-item"><span class="sb-icon">◈</span>Capital &amp; Treasury</a><a href="/internal/governance" class="sb-item"><span class="sb-icon">◊</span>Governance</a><a href="/internal/vault" class="sb-item"><span class="sb-icon">▣</span>The Vault</a><a href="/internal/bench" class="sb-item"><span class="sb-icon">◎</span>The Bench</a><a href="/internal/structure" class="sb-item active"><span class="sb-icon">⊞</span>Structure</a><a href="/internal/doctrine" class="sb-item"><span class="sb-icon">▤</span>Doctrine</a>
+</nav><div class="sb-bottom"><div class="sb-user"><div class="sb-avatar">K</div><div><div class="sb-name">Kenneth Omirigbe</div><div class="sb-role">Founder</div></div></div><div class="sb-links"><a href="/">Public Site</a><a href="#" onclick="localStorage.removeItem('komir_session');window.location.href='/login'">Sign Out</a></div></div></aside>
+
+<main class="main">
+<div class="page-head"><div class="page-label">ORGANISATION</div><h1 class="page-title">Structure</h1><p class="page-desc">Organisational architecture, key roles, personal staff layer, and career paths. How the holding company is staffed and governed.</p></div>
+
+<!-- ORG MAP -->
+<div class="sh"><div class="sl">Organisational Map</div></div>
+<div class="org">
+<div class="org-node org-primary"><div class="org-role">Founder</div><div class="org-desc">Vision, strategy, IP origination</div></div>
+<div class="org-line"></div>
+<div class="org-staff">
+<div class="org-node"><div class="org-role">Chief of Staff</div><div class="org-desc">Founder brain</div></div>
+<div class="org-node"><div class="org-role">Exec Assistant</div><div class="org-desc">Business brain</div></div>
+<div class="org-node"><div class="org-role">PA / ADC</div><div class="org-desc">Movement</div></div>
+<div class="org-node"><div class="org-role">House Manager</div><div class="org-desc">Domestic SOPs</div></div>
+</div>
+<div class="org-line"></div>
+<div class="org-node org-secondary"><div class="org-role">Group CEO</div><div class="org-desc">Portfolio command</div></div>
+<div class="org-line"></div>
+<div class="org-node org-secondary"><div class="org-role">Director of Capital & Treasury</div><div class="org-desc">Capital allocation</div></div>
+<div class="org-line"></div>
+<div class="org-row">
+<div class="org-node org-secondary"><div class="org-role">Venture CEO</div><div class="org-desc">Jovilex</div></div>
+<div class="org-node org-secondary"><div class="org-role">Venture CEO</div><div class="org-desc">Praxis</div></div>
+<div class="org-node org-secondary"><div class="org-role">Venture CEO</div><div class="org-desc">Command Centre</div></div>
+<div class="org-node org-secondary"><div class="org-role">Venture CEO</div><div class="org-desc">Kinetic</div></div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- KEY ROLES -->
+<div class="sh"><div class="sl">Key Roles</div></div>
+<div class="rc-grid">
+<div class="rc"><div class="rc-tag">PORTFOLIO COMMAND</div><div class="rc-name">Group CEO</div><p class="rc-body">Sits between the founder and all venture CEOs. Commands the portfolio — translating strategic direction into operational targets. Agent-first: the systems are built before the human arrives.</p><div class="rc-path"><span>EA</span><span class="rc-arrow">→</span><span>CoS</span><span class="rc-arrow">→</span><span>Group CEO</span></div></div>
+<div class="rc"><div class="rc-tag">CAPITAL ARCHITECTURE</div><div class="rc-name">Director of Capital & Treasury</div><p class="rc-body">Routes Capital Engine output to ventures. Models cross-venture capitalisation, manages reserves. The connection between the capital system and every operational entity.</p></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PERSONAL STAFF -->
+<div class="sh"><div class="sl">Personal Staff Layer</div><div class="sc">4 roles protecting founder capacity</div></div>
+<div class="sg">
+<div class="sc-card"><div class="sc-name">Chief of Staff</div><p class="sc-desc">Founder's brain externalised. Decision queue, cross-venture synthesis, information filtering. Every other staff role reports here.</p></div>
+<div class="sc-card"><div class="sc-name">Executive Assistant</div><p class="sc-desc">Business brain. Schedule, communications, operational rhythm. First hire in the personal staff sequence. Reports to CoS.</p></div>
+<div class="sc-card"><div class="sc-name">PA / Aide-de-Camp</div><p class="sc-desc">Movement, travel, physical security, logistics. The founder moves between locations without friction.</p></div>
+<div class="sc-card"><div class="sc-name">House Manager</div><p class="sc-desc">Domestic SOPs. Home, meals, maintenance, household staff, personal logistics. Non-work life runs without attention.</p></div>
+</div>
+
+</main>
+<script>
+(function(){const d=window.location.hostname.includes('komirholdings.com')||window.location.hostname.includes('vercel.app');if(!d)return;const s=localStorage.getItem('komir_session');if(!s){window.location.href='/login';return}try{const p=JSON.parse(s);if(!p.token||(Date.now()-p.ts)>7*24*60*60*1000){localStorage.removeItem('komir_session');window.location.href='/login'}}catch(e){localStorage.removeItem('komir_session');window.location.href='/login'}})();
+</script>
+</body>
+</html>

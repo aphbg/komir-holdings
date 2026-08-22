@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governance — Komir Holdings Internal</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--c3:#252525;--purple:#843287;--pg:rgba(132,50,135,0.25);--pl:rgba(132,50,135,0.4);--pd:rgba(132,50,135,0.12);--w:#FFF;--w9:rgba(255,255,255,0.9);--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w3:rgba(255,255,255,0.3);--w2:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08);--w04:rgba(255,255,255,0.04);--green:#10B981;--amber:#FF7A2E;--red:#EF4444}
+body{font-family:'Outfit',sans-serif;background:var(--cd);color:var(--w);min-height:100vh;-webkit-font-smoothing:antialiased;display:flex}
+.sidebar{width:240px;background:var(--cs);border-right:1px solid var(--w08);position:fixed;top:0;bottom:0;left:0;display:flex;flex-direction:column;z-index:50}
+.sb-logo{padding:24px 20px 20px;border-bottom:1px solid var(--w08)}.sb-logo a{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.18em;color:var(--w5);text-decoration:none}.sb-logo a span{color:var(--purple)}
+.sb-label{font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.15em;color:var(--w3);padding:0 20px;margin-top:20px;margin-bottom:8px}
+.sb-nav{flex:1;padding:0 8px}
+.sb-item{display:flex;align-items:center;gap:12px;padding:10px 12px;font-size:14px;color:var(--w5);text-decoration:none;transition:all 0.15s;margin-bottom:2px}.sb-item:hover{color:var(--w);background:var(--w04)}.sb-item.active{color:var(--w);background:var(--pd);border-left:2px solid var(--purple);padding-left:10px}
+.sb-icon{font-size:16px;min-width:20px;text-align:center}
+.sb-bottom{padding:16px 20px;border-top:1px solid var(--w08)}
+.sb-user{display:flex;align-items:center;gap:10px;margin-bottom:12px}.sb-avatar{width:28px;height:28px;background:var(--purple);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:11px;color:var(--w)}.sb-name{font-size:13px;color:var(--w7)}.sb-role{font-size:11px;color:var(--w3);font-weight:300}
+.sb-links{display:flex;gap:16px}.sb-links a{font-size:11px;color:var(--w3);text-decoration:none;transition:color 0.2s}.sb-links a:hover{color:var(--w5)}
+.main{margin-left:240px;flex:1;min-height:100vh;padding:32px 40px 60px}
+.page-head{margin-bottom:36px}.page-label{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.15em;color:var(--purple);margin-bottom:8px}.page-title{font-family:'Sora',sans-serif;font-weight:800;font-size:28px;margin-bottom:8px}.page-desc{font-size:15px;color:var(--w5);max-width:560px;font-weight:300}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;margin-top:40px}.section-label{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--w)}.section-count{font-size:12px;color:var(--w3);font-weight:300}
+.divider{height:1px;background:var(--w08);margin:40px 0}
+
+/* GOVERNANCE LAYERS */
+.gov-stack{display:flex;flex-direction:column;gap:12px}
+.gov-layer{background:var(--cc);border:1px solid var(--w08);padding:24px;display:flex;gap:24px;align-items:flex-start;transition:border-color 0.2s}.gov-layer:hover{border-color:var(--pl)}
+.gov-num{font-family:'Sora',sans-serif;font-weight:800;font-size:28px;color:var(--purple);min-width:36px;opacity:0.6;padding-top:2px}
+.gov-body{flex:1}
+.gov-name{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--w);margin-bottom:6px}
+.gov-desc{font-size:14px;line-height:1.75;color:var(--w7)}
+.gov-tag{display:inline-block;font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.08em;padding:3px 8px;margin-top:10px}
+.gov-tag.founder{background:rgba(239,68,68,0.1);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
+.gov-tag.legal{background:var(--pd);color:#B06AB3;border:1px solid var(--pl)}
+
+/* RESERVED MATTERS */
+.rm-list{display:flex;flex-direction:column;gap:8px}
+.rm-item{background:var(--cc);border:1px solid var(--w08);border-left:3px solid var(--purple);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:border-color 0.2s}.rm-item:hover{border-color:var(--pl)}
+.rm-num{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;color:var(--purple);min-width:24px}
+.rm-text{font-size:14px;color:var(--w9)}
+
+/* DOCUMENT CARDS */
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.doc-card{background:var(--cc);border:1px solid var(--w08);padding:20px;transition:border-color 0.2s;cursor:default}.doc-card:hover{border-color:var(--pl)}
+.doc-icon{font-size:24px;margin-bottom:12px}
+.doc-name{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--w);margin-bottom:4px}
+.doc-desc{font-size:12px;color:var(--w5);line-height:1.6;font-weight:300}
+.doc-access{display:inline-block;font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.06em;padding:3px 8px;margin-top:10px}
+.doc-access.founder-only{background:rgba(239,68,68,0.1);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
+.doc-access.c-suite{background:var(--pd);color:#B06AB3;border:1px solid var(--pl)}
+.doc-access.board{background:var(--w04);color:var(--w5);border:1px solid var(--w08)}
+.doc-status{font-size:11px;color:var(--w3);margin-top:6px;font-weight:300}
+
+/* BOARD */
+.board-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.board-card{background:var(--cc);border:1px solid var(--w08);padding:20px;transition:border-color 0.2s}.board-card:hover{border-color:var(--pl)}
+.board-name{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--w);margin-bottom:4px}
+.board-focus{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.06em;color:var(--purple);margin-bottom:8px}
+.board-desc{font-size:13px;color:var(--w5);line-height:1.6;font-weight:300}
+.board-seats{font-size:11px;color:var(--w3);margin-top:8px}
+
+.mobile-header{display:none;position:fixed;top:0;left:0;right:0;background:var(--cs);border-bottom:1px solid var(--w08);padding:16px 20px;z-index:60;align-items:center;justify-content:space-between}
+.mobile-header .wm{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.15em;color:var(--w5);text-decoration:none}.mobile-header .wm span{color:var(--purple)}
+.mobile-toggle{background:none;border:none;cursor:pointer;padding:4px}.mobile-toggle svg{width:24px;height:24px;stroke:var(--w);stroke-width:2;fill:none}
+.sidebar-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:45}.sidebar-overlay.open{display:block}
+
+@media(max-width:820px){.doc-grid{grid-template-columns:1fr}.board-grid{grid-template-columns:1fr}}
+@media(max-width:680px){.sidebar{transform:translateX(-100%);transition:transform 0.25s;width:280px}.sidebar.open{transform:translateX(0)}.mobile-header{display:flex}.main{margin-left:0;padding:80px 20px 40px}}
+</style>
+</head>
+<body>
+<div class="mobile-header"><a href="/" class="wm">KOMIR<span>.</span></a><button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div>
+<div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('open')"></div>
+<aside class="sidebar">
+<div class="sb-logo"><a href="/">KOMIR HOLDINGS<span>.</span></a></div>
+<div class="sb-label">INTERNAL</div>
+<nav class="sb-nav">
+<a href="/internal" class="sb-item"><span class="sb-icon">◉</span>Command View</a>
+<a href="/internal/portfolio" class="sb-item"><span class="sb-icon">◫</span>Portfolio</a>
+<a href="/internal/capital" class="sb-item"><span class="sb-icon">◈</span>Capital &amp; Treasury</a>
+<a href="/internal/governance" class="sb-item active"><span class="sb-icon">◊</span>Governance</a>
+<a href="/internal/vault" class="sb-item"><span class="sb-icon">▣</span>The Vault</a>
+<a href="/internal/bench" class="sb-item"><span class="sb-icon">◎</span>The Bench</a>
+<a href="/internal/structure" class="sb-item"><span class="sb-icon">⊞</span>Structure</a>
+<a href="/internal/doctrine" class="sb-item"><span class="sb-icon">▤</span>Doctrine</a>
+</nav>
+<div class="sb-bottom"><div class="sb-user"><div class="sb-avatar">K</div><div><div class="sb-name">Kenneth Omirigbe</div><div class="sb-role">Founder</div></div></div><div class="sb-links"><a href="/">Public Site</a><a href="#" onclick="localStorage.removeItem('komir_session');window.location.href='/login'">Sign Out</a></div></div>
+</aside>
+
+<main class="main">
+<div class="page-head">
+<div class="page-label">GOVERNANCE</div>
+<h1 class="page-title">Governance Vault</h1>
+<p class="page-desc">Constitutional documents, founder protections, reserved matters, and board governance. The legal architecture that ensures the company operates as designed — permanently.</p>
+</div>
+
+<!-- FIVE LAYERS -->
+<div class="section-head"><div class="section-label">Five-Layer Founder Protection</div><div class="section-count">Architecture locked Aug 2026</div></div>
+<div class="gov-stack">
+<div class="gov-layer"><div class="gov-num">1</div><div class="gov-body"><div class="gov-name">IP Origination</div><p class="gov-desc">Every system, methodology, and architecture in the portfolio was created by the founder as personal intellectual property before being licensed to the holding company. The Capital Engine, every venture architecture, every operational system — all originated with the founder and are formally documented. The company operates on licensed IP. The IP belongs to the creator.</p><span class="gov-tag founder">FOUNDER IP</span></div></div>
+<div class="gov-layer"><div class="gov-num">2</div><div class="gov-body"><div class="gov-name">Dual-Class Share Structure</div><p class="gov-desc">Two classes of shares. Class A carries standard voting rights. Class B carries superior voting rights (10:1 or higher) and is held exclusively by the founder and designated trust structures. Class B shares are non-transferable and non-dilutable. Economic ownership can shift — voting control does not.</p><span class="gov-tag legal">CONSTITUTIONAL</span></div></div>
+<div class="gov-layer"><div class="gov-num">3</div><div class="gov-body"><div class="gov-name">Founder Reserved Matters</div><p class="gov-desc">A defined list of decisions that require the founder's written consent regardless of board vote or shareholder majority. No resolution on these matters passes without the founder's signature. The list is embedded in the company's constitutional documents.</p><span class="gov-tag founder">FOUNDER VETO</span></div></div>
+<div class="gov-layer"><div class="gov-num">4</div><div class="gov-body"><div class="gov-name">Irrevocable Trust</div><p class="gov-desc">The family holding structure is held within an irrevocable trust. The trust holds Class B shares and the IP portfolio. It protects the structure from all parties — including the founder. The trustee's fiduciary duty is to the beneficiaries across generations.</p><span class="gov-tag legal">TRUST STRUCTURE</span></div></div>
+<div class="gov-layer"><div class="gov-num">5</div><div class="gov-body"><div class="gov-name">Golden Share</div><p class="gov-desc">A single share with the power to block any resolution that would alter the company's fundamental character, ownership structure, or founder protections. Even if every other shareholder and the board votes unanimously — the golden share holds final authority.</p><span class="gov-tag founder">EMERGENCY BRAKE</span></div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- RESERVED MATTERS -->
+<div class="section-head"><div class="section-label">Founder Reserved Matters</div><div class="section-count">Requires founder written consent</div></div>
+<div class="rm-list">
+<div class="rm-item"><div class="rm-num">01</div><div class="rm-text">Any sale, merger, or acquisition of the company or any subsidiary</div></div>
+<div class="rm-item"><div class="rm-num">02</div><div class="rm-text">Any new share issuance that would dilute existing holders</div></div>
+<div class="rm-item"><div class="rm-num">03</div><div class="rm-text">Any change to the company's constitutional documents</div></div>
+<div class="rm-item"><div class="rm-num">04</div><div class="rm-text">Appointment or removal of the Group CEO</div></div>
+<div class="rm-item"><div class="rm-num">05</div><div class="rm-text">Entry into any new sector or market</div></div>
+<div class="rm-item"><div class="rm-num">06</div><div class="rm-text">Any single expenditure above defined threshold</div></div>
+<div class="rm-item"><div class="rm-num">07</div><div class="rm-text">Any change to the Capital Engine's deployment or management</div></div>
+<div class="rm-item"><div class="rm-num">08</div><div class="rm-text">Any government contract above defined value</div></div>
+<div class="rm-item"><div class="rm-num">09</div><div class="rm-text">Dissolution of any venture</div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONSTITUTIONAL DOCUMENTS -->
+<div class="section-head"><div class="section-label">Constitutional Documents</div><div class="section-count">Upload when ready</div></div>
+<div class="doc-grid">
+<div class="doc-card"><div class="doc-icon">📜</div><div class="doc-name">Articles of Association</div><p class="doc-desc">The company's founding constitutional document containing dual-class share structure, reserved matters list, and golden share provisions.</p><span class="doc-access founder-only">FOUNDER ONLY</span><div class="doc-status">Pending — requires corporate lawyer</div></div>
+<div class="doc-card"><div class="doc-icon">📜</div><div class="doc-name">IP License Agreement</div><p class="doc-desc">Formal agreement between the founder (as IP owner) and the holding company (as licensee). Defines the terms, conditions, and governance protections embedded in the license.</p><span class="doc-access founder-only">FOUNDER ONLY</span><div class="doc-status">Pending — requires IP lawyer</div></div>
+<div class="doc-card"><div class="doc-icon">📜</div><div class="doc-name">Trust Instrument</div><p class="doc-desc">The irrevocable trust document. Names beneficiaries, defines trustee duties, holds Class B shares and IP portfolio. The generational lock.</p><span class="doc-access founder-only">FOUNDER ONLY</span><div class="doc-status">Pending — requires UAE family office counsel</div></div>
+<div class="doc-card"><div class="doc-icon">📜</div><div class="doc-name">Shareholder Register</div><p class="doc-desc">Complete record of all shareholders, share classes, voting rights, and transfer restrictions. Updated with every issuance or transfer.</p><span class="doc-access c-suite">C-SUITE</span><div class="doc-status">Pending — created at incorporation</div></div>
+<div class="doc-card"><div class="doc-icon">📜</div><div class="doc-name">IP Registry</div><p class="doc-desc">Timestamped catalogue of all intellectual property created by the founder — Capital Engine, venture architectures, system designs, methodologies. Establishes origination dates and ownership.</p><span class="doc-access founder-only">FOUNDER ONLY</span><div class="doc-status">In progress — documenting from existing work</div></div>
+<div class="doc-card"><div class="doc-icon">📜</div><div class="doc-name">Board Resolutions Log</div><p class="doc-desc">Chronological record of all board resolutions — passed, rejected, and pending. Tracks which reserved matters were invoked and when.</p><span class="doc-access board">BOARD</span><div class="doc-status">Active — updated per resolution</div></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BOARD STRATEGY -->
+<div class="section-head"><div class="section-label">Board Strategy</div><div class="section-count">5 boards planned</div></div>
+<div class="board-grid">
+<div class="board-card"><div class="board-name">Komir Holdings — Parent Board</div><div class="board-focus">CAPITAL · GOVERNANCE · CROSS-VENTURE STRATEGY</div><p class="board-desc">Governs the entire portfolio. Capital allocation, governance standards, long-term positioning. Holding company experience, capital markets expertise, multi-sector operational knowledge.</p><div class="board-seats">Seats: TBD · Composition: In design</div></div>
+<div class="board-card"><div class="board-name">Praxis Board</div><div class="board-focus">EDUCATION · POLICY · SCALING</div><p class="board-desc">Education sector expertise. Policy relationships with state and federal bodies. Experience scaling school networks. AI-native education model understanding.</p><div class="board-seats">Seats: TBD · Composition: In design</div></div>
+<div class="board-card"><div class="board-name">GovTech Advisory Board</div><div class="board-focus">GOVERNMENT · DEFENCE · PROCUREMENT</div><p class="board-desc">Government technology, defence procurement, sovereign partnerships. Direct experience in government contracting at scale across jurisdictions.</p><div class="board-seats">Seats: TBD · Composition: In design</div></div>
+<div class="board-card"><div class="board-name">Kinetic Board</div><div class="board-focus">EDTECH · VENTURE CAPITAL · GROWTH</div><p class="board-desc">Digital education infrastructure, EdTech scaling, venture capital. Scaling a technology platform with external capital while maintaining strategic alignment.</p><div class="board-seats">Seats: TBD · Composition: In design</div></div>
+<div class="board-card"><div class="board-name">Jolag Farm City Board</div><div class="board-focus">DEVELOPMENT · AGRICULTURE · INSTITUTIONAL CAPITAL</div><p class="board-desc">Large-scale development, agricultural infrastructure, institutional finance. Billion-dollar project experience, land acquisition, sovereign wealth fund relationships.</p><div class="board-seats">Seats: TBD · Composition: In design</div></div>
+</div>
+
+</main>
+
+<script>
+(function(){
+  const isDeployed = window.location.hostname.includes('komirholdings.com') || window.location.hostname.includes('vercel.app');
+  if (!isDeployed) return;
+  const s = localStorage.getItem('komir_session');
+  if (!s) { window.location.href = '/login'; return; }
+  try { const session = JSON.parse(s); if (!session.token || (Date.now() - session.ts) > 7*24*60*60*1000) { localStorage.removeItem('komir_session'); window.location.href = '/login'; } } catch(e) { localStorage.removeItem('komir_session'); window.location.href = '/login'; }
+})();
+</script>
+</body>
+</html>

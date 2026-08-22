@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctrine — Komir Holdings Internal</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--purple:#843287;--pl:rgba(132,50,135,0.4);--pd:rgba(132,50,135,0.12);--w:#FFF;--w9:rgba(255,255,255,0.9);--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w3:rgba(255,255,255,0.3);--w08:rgba(255,255,255,0.08);--w04:rgba(255,255,255,0.04)}
+body{font-family:'Outfit',sans-serif;background:var(--cd);color:var(--w);min-height:100vh;-webkit-font-smoothing:antialiased;display:flex}
+.sidebar{width:240px;background:var(--cs);border-right:1px solid var(--w08);position:fixed;top:0;bottom:0;left:0;display:flex;flex-direction:column;z-index:50}
+.sb-logo{padding:24px 20px 20px;border-bottom:1px solid var(--w08)}.sb-logo a{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.18em;color:var(--w5);text-decoration:none}.sb-logo a span{color:var(--purple)}
+.sb-label{font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.15em;color:var(--w3);padding:0 20px;margin-top:20px;margin-bottom:8px}
+.sb-nav{flex:1;padding:0 8px}.sb-item{display:flex;align-items:center;gap:12px;padding:10px 12px;font-size:14px;color:var(--w5);text-decoration:none;transition:all 0.15s;margin-bottom:2px}.sb-item:hover{color:var(--w);background:var(--w04)}.sb-item.active{color:var(--w);background:var(--pd);border-left:2px solid var(--purple);padding-left:10px}
+.sb-icon{font-size:16px;min-width:20px;text-align:center}
+.sb-bottom{padding:16px 20px;border-top:1px solid var(--w08)}.sb-user{display:flex;align-items:center;gap:10px;margin-bottom:12px}.sb-avatar{width:28px;height:28px;background:var(--purple);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:11px;color:var(--w)}.sb-name{font-size:13px;color:var(--w7)}.sb-role{font-size:11px;color:var(--w3);font-weight:300}
+.sb-links{display:flex;gap:16px}.sb-links a{font-size:11px;color:var(--w3);text-decoration:none}.sb-links a:hover{color:var(--w5)}
+.main{margin-left:240px;flex:1;min-height:100vh;padding:32px 40px 60px}
+.page-head{margin-bottom:36px}.page-label{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.15em;color:var(--purple);margin-bottom:8px}.page-title{font-family:'Sora',sans-serif;font-weight:800;font-size:28px;margin-bottom:8px}.page-desc{font-size:15px;color:var(--w5);max-width:560px;font-weight:300}
+
+/* DOCTRINE ENTRIES */
+.doctrine{margin-bottom:24px;border-bottom:1px solid var(--w08);padding-bottom:24px}
+.doctrine:last-child{border-bottom:none}
+.d-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:12px}
+.d-num{font-family:'Sora',sans-serif;font-weight:800;font-size:32px;color:var(--purple);opacity:0.4;min-width:40px;line-height:1}
+.d-title{font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--w);padding-top:4px}
+.d-body{font-size:14px;line-height:1.85;color:var(--w7);margin-left:60px;max-width:640px}
+.d-body+.d-body{margin-top:12px}
+
+/* FILTER CARDS */
+.filter-list{display:flex;flex-direction:column;gap:8px;margin-top:16px;margin-left:60px;max-width:640px}
+.fi{background:var(--cc);border:1px solid var(--w08);padding:16px 20px;display:flex;gap:16px;align-items:flex-start;transition:border-color 0.2s}.fi:hover{border-color:var(--pl)}
+.fi-num{font-family:'Sora',sans-serif;font-weight:700;font-size:13px;color:var(--purple);min-width:24px}
+.fi-q{font-size:14px;color:var(--w9)}.fi-why{font-size:12px;color:var(--w3);margin-top:4px}
+
+/* LADDER */
+.ladder{display:flex;flex-direction:column;gap:2px;margin-top:16px;margin-left:60px;max-width:640px}
+.lr{display:flex;align-items:stretch;background:var(--cs)}
+.lr-step{font-family:'Sora',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.06em;color:var(--w);padding:14px 18px;min-width:100px;display:flex;align-items:center;border-right:3px solid var(--purple);background:var(--cc)}
+.lr-desc{padding:14px 18px;font-size:13px;line-height:1.6;color:var(--w7);display:flex;align-items:center}
+
+.mobile-header{display:none;position:fixed;top:0;left:0;right:0;background:var(--cs);border-bottom:1px solid var(--w08);padding:16px 20px;z-index:60;align-items:center;justify-content:space-between}
+.mobile-header .wm{font-family:'Sora',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.15em;color:var(--w5);text-decoration:none}.mobile-header .wm span{color:var(--purple)}
+.mobile-toggle{background:none;border:none;cursor:pointer;padding:4px}.mobile-toggle svg{width:24px;height:24px;stroke:var(--w);stroke-width:2;fill:none}
+.sidebar-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:45}.sidebar-overlay.open{display:block}
+@media(max-width:680px){.sidebar{transform:translateX(-100%);transition:transform 0.25s;width:280px}.sidebar.open{transform:translateX(0)}.mobile-header{display:flex}.main{margin-left:0;padding:80px 20px 40px}.d-body,.filter-list,.ladder{margin-left:0}.d-header{flex-direction:column;gap:8px}.lr{flex-direction:column}.lr-step{min-width:unset;border-right:none;border-bottom:3px solid var(--purple)}}
+</style>
+</head>
+<body>
+<div class="mobile-header"><a href="/" class="wm">KOMIR<span>.</span></a><button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div>
+<div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('open')"></div>
+<aside class="sidebar"><div class="sb-logo"><a href="/">KOMIR HOLDINGS<span>.</span></a></div><div class="sb-label">INTERNAL</div><nav class="sb-nav">
+<a href="/internal" class="sb-item"><span class="sb-icon">◉</span>Command View</a><a href="/internal/portfolio" class="sb-item"><span class="sb-icon">◫</span>Portfolio</a><a href="/internal/capital" class="sb-item"><span class="sb-icon">◈</span>Capital &amp; Treasury</a><a href="/internal/governance" class="sb-item"><span class="sb-icon">◊</span>Governance</a><a href="/internal/vault" class="sb-item"><span class="sb-icon">▣</span>The Vault</a><a href="/internal/bench" class="sb-item"><span class="sb-icon">◎</span>The Bench</a><a href="/internal/structure" class="sb-item"><span class="sb-icon">⊞</span>Structure</a><a href="/internal/doctrine" class="sb-item active"><span class="sb-icon">▤</span>Doctrine</a>
+</nav><div class="sb-bottom"><div class="sb-user"><div class="sb-avatar">K</div><div><div class="sb-name">Kenneth Omirigbe</div><div class="sb-role">Founder</div></div></div><div class="sb-links"><a href="/">Public Site</a><a href="#" onclick="localStorage.removeItem('komir_session');window.location.href='/login'">Sign Out</a></div></div></aside>
+
+<main class="main">
+<div class="page-head"><div class="page-label">OPERATING LAWS</div><h1 class="page-title">Doctrine</h1><p class="page-desc">The eight operating laws that govern how Komir Holdings builds, hires, enters markets, deploys capital, and makes decisions. These are not guidelines. They are the rules.</p></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">I</div><div class="d-title">The Work Is the Pitch</div></div><p class="d-body">Walk in with finished work. The quality of the deliverable creates the conversation. Never lead with price. Never wait for approval before starting. Build first. Deliver complete. Let the work do the talking.</p></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">II</div><div class="d-title">One Shot, One Kill</div></div><p class="d-body">The first delivery is production-ready. No shells. No placeholders. No "we'll refine later." Everything is built complete from the start. If it leaves Komir Holdings, it is finished.</p></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">III</div><div class="d-title">The Engagement Filter</div></div><p class="d-body">Every idea, client engagement, internal build, and feature request runs through five questions before it reaches the founder's desk.</p>
+<div class="filter-list">
+<div class="fi"><div class="fi-num">01</div><div><div class="fi-q">Does this require the founder's mind specifically?</div><div class="fi-why">If a competent CTO could run it, it doesn't reach the desk.</div></div></div>
+<div class="fi"><div class="fi-num">02</div><div><div class="fi-q">Does this create IP that Komir owns?</div><div class="fi-why">If it doesn't produce a platform or licensable model, it's freelancing.</div></div></div>
+<div class="fi"><div class="fi-num">03</div><div><div class="fi-q">What does this unlock that isn't visible yet?</div><div class="fi-why">Every move should open a door behind it.</div></div></div>
+<div class="fi"><div class="fi-num">04</div><div><div class="fi-q">Is this a $10M conversation or a $10K conversation?</div><div class="fi-why">The founder has a floor. Every hour below it is stolen from above it.</div></div></div>
+<div class="fi"><div class="fi-num">05</div><div><div class="fi-q">Can this run without the founder?</div><div class="fi-why">If it can't be systematised and handed to a team, it's a job — not infrastructure.</div></div></div>
+</div></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">IV</div><div class="d-title">The First-Hire Doctrine</div></div><p class="d-body">One person enters doing everything. They ascend as the next arrives. Nobody brought in above someone who grew from the ground. Character over credentials. Wholeness over intelligence.</p></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">V</div><div class="d-title">Use What We Build</div></div><p class="d-body">Every venture serves the others before it serves the market. The school educates our people. The media company tells our stories. The food brand feeds our teams. The portfolio is its own first and most demanding customer.</p></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">VI</div><div class="d-title">Sovereign Capital</div></div><p class="d-body">External capital is a strategic option from strength. Never a requirement for survival. The Capital Engine ensures every venture can be funded without waiting for permission from outside. When external capital enters, it enters on Komir's terms.</p></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">VII</div><div class="d-title">The Enemy Is the System</div></div><p class="d-body">The enemy is always the system, never a person. When something fails, the diagnosis points at the structure that allowed the failure, not the individual standing there when it broke. People are replaced when they cannot grow. Systems are rebuilt when they produce wrong outcomes.</p></div>
+
+<div class="doctrine"><div class="d-header"><div class="d-num">VIII</div><div class="d-title">The Country Ladder</div></div><p class="d-body">Komir enters new countries through a five-rung sequence. No rung is skipped. Each one proves the market before the next investment.</p>
+<div class="ladder">
+<div class="lr"><div class="lr-step">RUNG 1</div><div class="lr-desc">Country Lead deployed remotely. Mapping markets, identifying opportunities.</div></div>
+<div class="lr"><div class="lr-step">RUNG 2</div><div class="lr-desc">Remote wins. Revenue generated before any physical presence.</div></div>
+<div class="lr"><div class="lr-step">RUNG 3</div><div class="lr-desc">Local voice. Native content creator building visibility on the ground.</div></div>
+<div class="lr"><div class="lr-step">RUNG 4</div><div class="lr-desc">Komir principal arrives. Revenue-funded. Flexible workspace.</div></div>
+<div class="lr"><div class="lr-step">RUNG 5</div><div class="lr-desc">Country Lead appointed. Permanent presence formalised after in-person proof.</div></div>
+</div></div>
+
+</main>
+<script>
+(function(){const d=window.location.hostname.includes('komirholdings.com')||window.location.hostname.includes('vercel.app');if(!d)return;const s=localStorage.getItem('komir_session');if(!s){window.location.href='/login';return}try{const p=JSON.parse(s);if(!p.token||(Date.now()-p.ts)>7*24*60*60*1000){localStorage.removeItem('komir_session');window.location.href='/login'}}catch(e){localStorage.removeItem('komir_session');window.location.href='/login'}})();
+</script>
+</body>
+</html>

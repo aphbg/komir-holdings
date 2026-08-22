@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal — Komir Holdings</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--purple:#843287;--pg:rgba(132,50,135,0.25);--pl:rgba(132,50,135,0.4);--w:#FFF;--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w2:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08)}
+body{font-family:'Outfit',sans-serif;background:var(--cd);color:var(--w);min-height:100vh;display:flex;align-items:center;justify-content:center;-webkit-font-smoothing:antialiased;position:relative;overflow:hidden}
+body::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,var(--pg) 0%,transparent 60%);pointer-events:none}
+
+.login-box{width:100%;max-width:380px;padding:0 24px;position:relative;z-index:1}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;letter-spacing:0.15em;text-align:center;margin-bottom:8px;color:var(--w)}
+.logo span{color:var(--purple)}
+.login-sub{text-align:center;font-size:13px;color:var(--w5);margin-bottom:48px;font-weight:300;letter-spacing:0.04em}
+.login-label{font-family:'Sora',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.12em;color:var(--w5);margin-bottom:8px;display:block}
+.login-input{width:100%;background:var(--cs);border:1px solid var(--w08);padding:14px 16px;font-family:'Outfit',sans-serif;font-size:15px;color:var(--w);outline:none;transition:border-color 0.2s;margin-bottom:20px;-webkit-appearance:none}
+.login-input:focus{border-color:var(--purple)}
+.login-input::placeholder{color:var(--w2)}
+.login-btn{width:100%;background:var(--purple);border:none;padding:16px;font-family:'Sora',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.06em;color:var(--w);cursor:pointer;transition:opacity 0.2s}
+.login-btn:hover{opacity:0.85}
+.login-btn:active{opacity:0.7}
+.login-note{text-align:center;margin-top:24px;font-size:12px;color:var(--w2);font-weight:300}
+.login-error{text-align:center;font-size:13px;color:#EF4444;margin-bottom:16px;min-height:20px}
+.login-back{text-align:center;margin-top:32px}
+.login-back a{font-size:12px;color:var(--w2);text-decoration:none;transition:color 0.2s}.login-back a:hover{color:var(--w5)}
+</style>
+</head>
+<body>
+<div class="login-box">
+  <div class="logo">KOMIR HOLDINGS<span>.</span></div>
+  <div class="login-sub">Internal access only</div>
+
+  <div id="loginError" class="login-error"></div>
+
+  <label class="login-label">EMAIL</label>
+  <input type="email" id="loginEmail" class="login-input" placeholder="name@komirholdings.com" autocomplete="email">
+
+  <label class="login-label">PASSWORD</label>
+  <input type="password" id="loginPassword" class="login-input" placeholder="Enter password" autocomplete="current-password">
+
+  <button class="login-btn" onclick="handleLogin()">SIGN IN</button>
+
+  <div class="login-note">Accounts are created by the founder only.</div>
+  <div class="login-back"><a href="/">← Back to komirholdings.com</a></div>
+</div>
+
+<script>
+// Temporary gate — replaced by Supabase Auth in Session 5
+const TEMP_PASSWORD = 'komir2026';
+
+function handleLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  const error = document.getElementById('loginError');
+
+  if (!email || !password) {
+    error.textContent = 'Enter both email and password.';
+    return;
+  }
+
+  if (password === TEMP_PASSWORD) {
+    const session = { email: email, ts: Date.now(), token: btoa(email + ':' + Date.now()) };
+    localStorage.setItem('komir_session', JSON.stringify(session));
+    window.location.href = '/internal';
+  } else {
+    error.textContent = 'Invalid credentials.';
+    document.getElementById('loginPassword').value = '';
+  }
+}
+
+// Enter key triggers login
+document.getElementById('loginPassword').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') handleLogin();
+});
+document.getElementById('loginEmail').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('loginPassword').focus();
+});
+
+// If already logged in, redirect
+if (localStorage.getItem('komir_session')) {
+  try {
+    const s = JSON.parse(localStorage.getItem('komir_session'));
+    if (s.token && (Date.now() - s.ts) < 7 * 24 * 60 * 60 * 1000) {
+      window.location.href = '/internal';
+    }
+  } catch(e) {}
+}
+</script>
+</body>
+</html>

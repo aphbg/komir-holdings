@@ -35,6 +35,42 @@
     {
       "source": "/doctrine",
       "destination": "/doctrine.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/internal",
+      "destination": "/internal.html"
+    },
+    {
+      "source": "/internal/governance",
+      "destination": "/internal-governance.html"
+    },
+    {
+      "source": "/internal/vault",
+      "destination": "/internal-vault.html"
+    },
+    {
+      "source": "/internal/capital",
+      "destination": "/internal-capital.html"
+    },
+    {
+      "source": "/internal/portfolio",
+      "destination": "/internal-portfolio.html"
+    },
+    {
+      "source": "/internal/bench",
+      "destination": "/internal-bench.html"
+    },
+    {
+      "source": "/internal/structure",
+      "destination": "/internal-structure.html"
+    },
+    {
+      "source": "/internal/doctrine",
+      "destination": "/internal-doctrine.html"
     }
   ]
 }
