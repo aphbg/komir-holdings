@@ -71,6 +71,10 @@
     {
       "source": "/internal/doctrine",
       "destination": "/internal-doctrine.html"
+    },
+    {
+      "source": "/internal/agents",
+      "destination": "/internal-agents.html"
     }
   ]
 }
