@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Capital Building — Komir Holdings</title>
-<meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Capital Building — Komir Holdings">
 <meta property="og:description" content="The financial headquarters of Komir Holdings.">
 <meta property="og:type" content="website">
@@ -40,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.9
 
 /* FLOOR SECTIONS */
 .floor{padding:0;border-bottom:1px solid var(--w08)}
-.floor-inner{display:grid;grid-template-columns:280px 1fr;min-height:320px}
+.floor-inner{display:grid;grid-template-columns:280px 1fr;min-height:320px;max-width:1140px;margin:0 auto}
 .floor-label{display:flex;flex-direction:column;justify-content:center;padding:48px 36px;position:relative}
 .floor-label::after{content:'';position:absolute;right:0;top:24px;bottom:24px;width:3px;background:var(--purple)}
 .floor-tag{font-family:'Sora',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.15em;color:var(--purple);margin-bottom:8px}
@@ -136,10 +135,10 @@ footer{padding:40px 0;border-top:1px solid var(--w08);background:var(--cd)}.fi{d
 </head>
 <body>
 <nav><div class="c ni"><a href="/" class="wm">KOMIR HOLDINGS<span>.</span></a>
-<ul class="nl"><li><a href="/ventures">Ventures</a></li><li><a href="/campus">Campus</a></li><li><a href="/capital" class="active">Capital</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul>
+<ul class="nl"><li><a href="/about">About</a></li><li><a href="/ventures">Ventures</a></li><li><a href="/capital" class="active">Capital</a></li><li><a href="/campus">Campus</a></li><li><a href="/contact">Contact</a></li><li><a href="/login">Login</a></li></ul>
 <button class="hb" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
 </div></nav>
-<div id="mm" class="mm"><a href="/ventures">Ventures</a><a href="/campus">Campus</a><a href="/capital" class="active">Capital</a><a href="/about">About</a><a href="/contact">Contact</a></div>
+<div id="mm" class="mm"><a href="/about">About</a><a href="/ventures">Ventures</a><a href="/capital" class="active">Capital</a><a href="/campus">Campus</a><a href="/contact">Contact</a><a href="/login">Login</a></div>
 
 <section class="hero">
 <div class="c">
@@ -408,5 +407,5 @@ The Psychologist can pull any operator off the desk — and <b>no Desk Lead, Zon
 
 <div class="back"><div class="c"><a href="/capital">← Back to Capital Engine</a> · <a href="/campus" style="margin-left:8px">Campus Masterplan →</a></div></div>
 
-<footer><div class="c fi"><div class="fw">KOMIR HOLDINGS<span>.</span></div><div class="fm"><div class="fl">Nigeria · Global Headquarters</div><div>&copy; 2026 Komir Holdings. All rights reserved.</div></div></div></footer>
+<footer><div class="c fi"><div class="fw">KOMIR HOLDINGS<span>.</span></div><div class="fm"><div class="fl">Nigeria · Global Headquarters</div><div>&copy; 2026 Komir Holdings. All rights reserved. · <a href="/login" style="color:inherit;text-decoration:none;opacity:0.4;transition:opacity 0.2s" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=0.4">Internal</a></div></div></div></footer>
 </body></html>
