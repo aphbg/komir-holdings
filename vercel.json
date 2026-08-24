@@ -75,6 +75,10 @@
     {
       "source": "/internal/agents",
       "destination": "/internal-agents.html"
+    },
+    {
+      "source": "/bench",
+      "destination": "/bench.html"
     }
   ]
 }
