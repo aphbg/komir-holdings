@@ -79,6 +79,10 @@
     {
       "source": "/bench",
       "destination": "/bench.html"
+    },
+    {
+      "source": "/internal/people",
+      "destination": "/internal-people.html"
     }
   ]
 }
