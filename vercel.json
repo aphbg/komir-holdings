@@ -29,6 +29,14 @@
       "destination": "/contact.html"
     },
     {
+      "source": "/bench",
+      "destination": "/bench.html"
+    },
+    {
+      "source": "/briefing",
+      "destination": "/briefing.html"
+    },
+    {
       "source": "/structure",
       "destination": "/structure.html"
     },
@@ -65,24 +73,20 @@
       "destination": "/internal-bench.html"
     },
     {
-      "source": "/internal/structure",
-      "destination": "/internal-structure.html"
-    },
-    {
-      "source": "/internal/doctrine",
-      "destination": "/internal-doctrine.html"
+      "source": "/internal/people",
+      "destination": "/internal-people.html"
     },
     {
       "source": "/internal/agents",
       "destination": "/internal-agents.html"
     },
     {
-      "source": "/bench",
-      "destination": "/bench.html"
+      "source": "/internal/structure",
+      "destination": "/internal-structure.html"
     },
     {
-      "source": "/internal/people",
-      "destination": "/internal-people.html"
+      "source": "/internal/doctrine",
+      "destination": "/internal-doctrine.html"
     }
   ]
 }

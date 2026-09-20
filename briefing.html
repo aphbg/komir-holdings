@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Briefing — Komir Holdings</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111111'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='18' fill='%23843287'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--cd:#0A0A0A;--cs:#1A1A1A;--cc:#1E1E1E;--purple:#843287;--pg:rgba(132,50,135,0.25);--pl:rgba(132,50,135,0.4);--pd:rgba(132,50,135,0.12);--w:#FFF;--w9:rgba(255,255,255,0.9);--w7:rgba(255,255,255,0.7);--w5:rgba(255,255,255,0.5);--w3:rgba(255,255,255,0.3);--w2:rgba(255,255,255,0.2);--w08:rgba(255,255,255,0.08);--w04:rgba(255,255,255,0.04);--green:#10B981;--amber:#FF7A2E;--red:#EF4444}
+html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;background:var(--cd);color:var(--w);line-height:1.7;-webkit-font-smoothing:antialiased}
+.c{max-width:800px;margin:0 auto;padding:0 40px}
+
+/* HERO */
+.hero{padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--pg) 0%,transparent 60%);pointer-events:none}
+.hero-wm{font-family:'Sora',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.2em;color:var(--w5);margin-bottom:32px}.hero-wm span{color:var(--purple)}
+.hero-title{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(28px,4vw,42px);line-height:1.2;margin-bottom:20px}
+.hero-sub{font-size:17px;line-height:1.85;color:var(--w5);max-width:600px;margin:0 auto}
+.hero-note{margin-top:24px;font-size:13px;color:var(--w3);font-style:italic}
+
+/* SECTIONS */
+section{padding:64px 0;border-top:1px solid var(--w08)}
+.s-title{font-family:'Sora',sans-serif;font-weight:700;font-size:24px;color:var(--w);margin-bottom:20px}
+.s-body{font-size:16px;line-height:1.9;color:var(--w7);margin-bottom:16px}
+.s-body strong{color:var(--w9);font-weight:500}
+
+/* LINKS */
+.live-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0}
+.ll{background:var(--cc);border:1px solid var(--w08);padding:24px;text-align:center;transition:border-color 0.2s;text-decoration:none}.ll:hover{border-color:var(--pl)}
+.ll-label{font-family:'Sora',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.1em;color:var(--purple);margin-bottom:8px}
+.ll-url{font-size:15px;color:var(--w9)}
+.ll-desc{font-size:12px;color:var(--w3);margin-top:6px}
+
+/* OPTIONS */
+.options{display:flex;flex-direction:column;gap:20px;margin:32px 0}
+.opt{background:var(--cc);border:1px solid var(--w08);padding:32px;transition:border-color 0.2s}.opt:hover{border-color:var(--pl)}
+.opt-tag{font-family:'Sora',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.1em;color:var(--purple);margin-bottom:10px}
+.opt-name{font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--w);margin-bottom:10px}
+.opt-body{font-size:15px;line-height:1.85;color:var(--w7)}
+.opt-detail{margin-top:12px;font-size:14px;color:var(--w5);line-height:1.75}
+
+/* NEEDS */
+.needs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.need{background:var(--cc);border:1px solid var(--w08);border-left:3px solid var(--purple);padding:20px}
+.need-name{font-family:'Sora',sans-serif;font-weight:600;font-size:14px;color:var(--w);margin-bottom:6px}
+.need-desc{font-size:13px;line-height:1.6;color:var(--w5)}
+
+/* COUNCIL */
+.council{background:var(--cs);border:1px solid var(--w08);padding:36px;margin:32px 0}
+.council-title{font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--w);margin-bottom:16px}
+.council-body{font-size:15px;line-height:1.85;color:var(--w7);margin-bottom:12px}
+.council-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.council-list li{font-size:14px;color:var(--w5);padding-left:20px;position:relative}
+.council-list li::before{content:'—';position:absolute;left:0;color:var(--purple)}
+
+/* CLOSING */
+.closing{padding:64px 0;border-top:1px solid var(--w08);text-align:center}
+.closing-body{font-size:16px;line-height:1.9;color:var(--w7);max-width:600px;margin:0 auto}
+.closing-contact{margin-top:32px;font-family:'Sora',sans-serif;font-weight:600;font-size:14px;color:var(--purple)}
+
+/* SEPARATOR */
+.sep{display:flex;align-items:center;gap:16px;margin:32px 0;color:var(--w3);font-size:12px;font-family:'Sora',sans-serif;font-weight:600;letter-spacing:0.1em}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--w08)}
+
+footer{padding:32px 0;border-top:1px solid var(--w08);text-align:center}
+.f-wm{font-family:'Sora',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.18em;color:var(--w3)}.f-wm span{color:var(--purple)}
+.f-note{font-size:11px;color:var(--w2);margin-top:8px}
+
+@media(max-width:680px){.c{padding:0 24px}.hero{padding:100px 0 48px}.live-links{grid-template-columns:1fr}.needs-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<section class="hero"><div class="c">
+<div class="hero-wm">KOMIR HOLDINGS<span>.</span></div>
+<h1 class="hero-title">Private Briefing</h1>
+<p class="hero-sub">If you're reading this, I sent you the link personally. This is the full picture — what I've been building, where it stands, what the Capital Engine is, and how you can be involved.</p>
+<p class="hero-note">This page is not linked from the main website. It's shared directly with people I trust.</p>
+</div></section>
+
+<!-- THE STORY -->
+<section><div class="c">
+<h2 class="s-title">The Story</h2>
+<p class="s-body">For the past year, I went dark. I stopped taking calls, paused most relationships, and disappeared from the social circles you knew me in. Not because something was wrong — because something was happening that I couldn't stop or explain until it was done.</p>
+<p class="s-body">It started with a question I'd been avoiding: why couldn't I make consistent money trading when I could read the market better than most people around me? The answer changed everything. <strong>My eyes could see the market perfectly. My hands couldn't execute what my eyes were seeing.</strong> The inconsistency wasn't knowledge — it was execution. Human emotion was the gap.</p>
+<p class="s-body">So I started researching how the best in the world actually trade. I discovered that <strong>over 80% of serious global trading volume is done by machines, not humans.</strong> The human designs the system. The machine executes. I began building an automated version of my trading methodology — something that trades the way my mind thinks, without my hands getting in the way.</p>
+<p class="s-body">That process opened a door I didn't expect. While building the trading system, my mind started designing everything around it — where the money goes after the system produces it, what businesses it funds, how those businesses are governed, how the whole thing compounds. And I couldn't stop. Something in me just kept building. Before I knew it, I had designed and built the entire infrastructure for a holding company. Not plans. Not ideas. Live systems.</p>
+</div></section>
+
+<!-- WHAT EXISTS -->
+<section><div class="c">
+<h2 class="s-title">What Exists — Right Now</h2>
+<p class="s-body">This is not a pitch deck. This is not a concept. Everything you're about to see is built, live, and deployed. A fully integrated, multi-vertical holding company architected to operate with elite efficiency, internal financial self-sustainability, and absolute sovereignty.</p>
+
+<div class="live-links">
+<a href="https://komirholdings.com" target="_blank" class="ll"><div class="ll-label">PUBLIC</div><div class="ll-url">komirholdings.com</div><p class="ll-desc">The front end. Ventures, capital, campus, governance — scroll through everything.</p></a>
+<a href="https://komirholdings.com/login" target="_blank" class="ll"><div class="ll-label">INTERNAL</div><div class="ll-url">komirholdings.com/login</div><p class="ll-desc">The back end. Use any email, password: komir2026. Dashboard, portfolio, people, agents — read everything.</p></a>
+</div>
+
+<p class="s-body"><strong>29 ventures designed and architectured</strong> — from Jovilex (live AI-powered services firm) to SnapLead (live SaaS lead generation) to Praxis (AI-native school system with a 23-section product bible) to Command Centre (executive operating system with GovTech applications). Five are live. Eight have frozen specifications. The rest are in concept or infrastructure.</p>
+<p class="s-body"><strong>Full governance designed</strong> — five-layer founder protection architecture (IP origination, dual-class shares, founder reserved matters, irrevocable trust, golden share). Five boards planned. Nine operating doctrines. Salary structures. Talent pipeline. Agent workforce with Doctrine IX: the machine occupies every seat before the human arrives.</p>
+<p class="s-body"><strong>One person built all of this.</strong> Using AI as an execution partner, what traditionally takes teams years has been architected, systemised, and brought to life in months. Everything you see on the website — every page, every system, every document — was designed and built by one mind with one AI tool.</p>
+</div></section>
+
+<!-- THE CAPITAL ENGINE -->
+<section><div class="c">
+<h2 class="s-title">The Capital Engine</h2>
+<p class="s-body">The Capital Engine is the core of everything. It is a proprietary algorithmic trading system designed to generate sovereign capital — money that belongs to the holding company, produced by the holding company, controlled by the holding company. No external dependency. No begging for funding rounds. No diluting equity to survive.</p>
+<p class="s-body"><strong>How it works:</strong> the system identifies high-probability trading setups across global financial markets using structural price action — market structure shifts, break of structure mechanics, and proprietary entry logic. The indicator identifies the setup. The Expert Advisor (EA) executes the trade. No human emotion. No execution gap.</p>
+<p class="s-body"><strong>Where it is now:</strong> the indicator methodology is refined and showing consistent 3:1 to 5:1 reward-to-risk setups. The EA automation is built and in data-matching phase — aligning the automated execution with the indicator's signal accuracy. An advanced mode (internally called "god mode") captures deeper entries that the standard mode misses, significantly reducing losses.</p>
+<p class="s-body"><strong>What happens when it goes live:</strong> the system deploys on capital. Even starting with $1,000, the compounding math works. With $10,000, it produces meaningful returns within the first quarter. With $100,000, it funds ventures. The system runs on dedicated infrastructure, 24 hours, no human intervention required after deployment. Every business in the portfolio can have a dedicated trading desk — a machine that generates revenue for that business automatically.</p>
+<p class="s-body">This is the crude oil entering the refinery. The refinery is already built. Everything you saw on the website — every venture, every building, every salary band — is the refinery. The Capital Engine is what flows through it.</p>
+</div></section>
+
+<!-- THE SOVEREIGN LOOP -->
+<section><div class="c">
+<h2 class="s-title">The Sovereign Financial Loop</h2>
+<p class="s-body">Instead of raising venture capital and diluting ownership, the holding company funds itself:</p>
+<p class="s-body"><strong>Engine produces returns →</strong> Treasury allocates capital across ventures <strong>→</strong> Ventures launch with real capital baselines (not shoestring budgets — $100K to $1M allocations) <strong>→</strong> Ventures generate revenue <strong>→</strong> Revenue flows back to treasury <strong>→</strong> Capital base grows <strong>→</strong> Engine scales <strong>→</strong> Next venture launches with a larger foundation.</p>
+<p class="s-body">The first two or three ventures are the hardest. After that, the system is self-sustaining. Every new venture starts with a capital base that gives it a massive advantage — because the engine already produced the money before the venture was even launched.</p>
+<p class="s-body">Companies like Deep Stash have raised over $12 million for something that is less than 20% of what Kinetic (one of our ventures) does. We intend to never need to raise that money externally — the engine produces it internally. When external capital enters, it enters on our terms, from a position of sovereignty, not survival.</p>
+</div></section>
+
+<div class="c"><div class="sep">HOW YOU CAN BE INVOLVED</div></div>
+
+<!-- OPTION A: INVEST -->
+<section><div class="c">
+<h2 class="s-title">Invest</h2>
+<p class="s-body">I am raising a pre-seed round to clear the last operational constraints between where I am and where the Capital Engine goes live. This is not speculative funding — the systems are built, the methodology is verified, the automation is in data-matching. What remains is runway, hardware, and uninterrupted access to AI compute.</p>
+
+<div class="options">
+<div class="opt"><div class="opt-tag">OPTION A</div><div class="opt-name">Holding Company Equity</div><p class="opt-body">A direct ownership stake in the parent entity — Komir Holdings. You own a piece of the holding company that sits above every venture, every revenue stream, and the Capital Engine itself.</p><p class="opt-detail">Your stake appreciates as the portfolio grows. You participate in the compounding effect of the sovereign loop. This is a long-term position — you're investing in the ecosystem, not a single product.</p></div>
+
+<div class="opt"><div class="opt-tag">OPTION B</div><div class="opt-name">Capital Engine Allocation</div><p class="opt-body">A direct investment into funding the algorithmic trading engine. Your capital is deployed into trading accounts that you own. The system trades for you. Returns are capped at 10x your investment — once the system reaches that target, you exit and withdraw.</p><p class="opt-detail">This is not equity. This is a performance-based allocation. You fund the engine, the engine trades your capital, you receive returns up to the agreed cap. The early participation cap of 10x reflects the advantage of being first in.</p></div>
+</div>
+
+<p class="s-body" style="font-size:14px;color:var(--w3)">You can choose one or both. Investing does not require joining the Council of Advisors. The two are entirely independent.</p>
+</div></section>
+
+<!-- OPTION B: COUNCIL -->
+<section><div class="c">
+<div class="council">
+<div class="council-title">The Council of Advisors</div>
+<p class="council-body">Building at this speed alone carries a personal cost. To ensure long-term execution without sliding into burnout, ego, or isolation, I have established a distinct governance layer — a non-executive personal board that sits between me and the intensity of what I'm building.</p>
+<p class="council-body">The Council does not manage corporate metrics. It is not a business board. It is a psychological and structural buffer — a group of people who know me personally, who have deep history with me, and who I can be held accountable to as a human being, not just as a founder.</p>
+<ul class="council-list">
+<li>Oversees founder well-being, long-term trajectory, and personal alignment</li>
+<li>Functions independently of standard corporate reviews</li>
+<li>Meets once or twice a year — this is not a heavy commitment</li>
+<li>Members receive holding company shares as acknowledgment of the relationship</li>
+<li>Seven seats planned — three being opened now for Q4 2026 / Q1 2027</li>
+<li>Everyone in the organisation knows this board exists and what it does</li>
+</ul>
+<p class="council-body" style="margin-top:16px;font-size:14px;color:var(--w3)">Joining the Council does not require investing. The two are entirely independent. If you want to sit on the Council without investing, that is welcome. If you want to invest without sitting on the Council, that is equally welcome.</p>
+</div>
+</div></section>
+
+<!-- WHAT'S NEEDED -->
+<section><div class="c">
+<h2 class="s-title">What's Needed</h2>
+<p class="s-body"><strong>Target: $50,000 / ₦50,000,000</strong> — pre-seed round to cover the next six months and bring the Capital Engine fully live.</p>
+<div class="needs-grid">
+<div class="need"><div class="need-name">AI Compute Access</div><p class="need-desc">Uninterrupted access to high-tier AI tools. The current restriction (weekly usage limits on the lowest plan) is the single biggest bottleneck. What should take 30 minutes takes hours or days when the system locks out.</p></div>
+<div class="need"><div class="need-name">Hardware Upgrade</div><p class="need-desc">High-performance workstation for data crunching. The current machine is functional but not built for the volume of backtesting and automation development required.</p></div>
+<div class="need"><div class="need-name">Operational Runway</div><p class="need-desc">Six months of living expenses — rent, food, movement, health. The building cannot continue if the builder is unstable. This is the foundation everything else rests on.</p></div>
+<div class="need"><div class="need-name">Trading Capital</div><p class="need-desc">Initial deployment capital for the engine once automation is verified. Even $1,000 starts the compounding. With $10,000, the first quarter produces meaningful returns.</p></div>
+</div>
+</div></section>
+
+<!-- WHY NOW -->
+<section><div class="c">
+<h2 class="s-title">Why Now</h2>
+<p class="s-body">The systems are built. The methodology is verified. The automation is in its final phase. What remains is not invention — it's completion. Every week the engine sits unfinished is a week the entire holding company waits. The refinery is built. It needs the crude to flow.</p>
+<p class="s-body">I have been self-funding everything to this point — every subscription, every tool, every meal. I am depleted. Not broken. Depleted. The level I am building at now requires stable ground so I can focus completely on finishing the engine and deploying it.</p>
+<p class="s-body">I can make money from client work — I have the ability to build solutions and raise weekly income. But every week I spend on client work is a week the Capital Engine sits unfinished. And the Capital Engine is what makes everything permanent.</p>
+<p class="s-body"><strong>This is not a startup asking you to believe in an idea. This is a system asking you to look at what already exists and fund the last mile.</strong></p>
+</div></section>
+
+<!-- CLOSING -->
+<div class="closing"><div class="c">
+<p class="closing-body">If you received this link, I trust you. I trust your judgment, your character, and your discretion. Whether you choose to invest, join the Council, both, or neither — I wanted you to see the full picture of what I've been building.</p>
+<p class="closing-body" style="margin-top:16px">If you'd like to talk, I'm available. If you know someone who should see this, let me know and I'll share the link directly — this page is not for forwarding without context.</p>
+<div class="closing-contact">Kenneth Omirigbe — Founder, Komir Holdings</div>
+</div></div>
+
+<footer><div class="c">
+<div class="f-wm">KOMIR HOLDINGS<span>.</span></div>
+<p class="f-note">Private briefing. Not for public distribution.</p>
+</div></footer>
+
+</body></html>
